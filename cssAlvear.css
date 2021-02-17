@@ -1,0 +1,16 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+#cuerpo{
+background: #0055c7;
+}
+#eslogan{
+  font-family: 'Bodoni Moda', serif;
+  font-size: 250%;
+}
+#proximamente{
+  font-family: 'Bodoni Moda', serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 200%;
+}
