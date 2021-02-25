@@ -14,3 +14,12 @@ background: #052f6e;
   font-family: 'Roboto', sans-serif;
   font-size: 200%;
 }
+.list-group-item{
+  color: #052f6e;
+}
+h1{
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  color:white;
+}
