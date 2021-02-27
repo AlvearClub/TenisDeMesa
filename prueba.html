@@ -1,15 +1,5 @@
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <meta name="description" content="AlvearClub"/>
-  <meta name="keywords" content=""/>
-  <title>InscripcionTMT</title>
-  <link rel="stylesheet" href="cssAlvear.css"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
 <style>
         table, th, td
         {
@@ -22,7 +12,7 @@
             font-weight:bold;
         }
 
- #loader {
+#loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid blue;
@@ -34,17 +24,17 @@
   visibility:hidden;
 }
 
- @-webkit-keyframes spin {
+@-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
 }
 
- @keyframes spin {
+@keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-</style>
+    </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
@@ -58,7 +48,7 @@
 	 document.getElementById("loader").style.visibility = "visible";
 	$('#mySpinner').addClass('spinner');
 
-  var id1=	$("#id").val();
+var id1=	$("#id").val();
 	var name= $("#name").val();
 
 
@@ -85,7 +75,7 @@
      document.getElementById("loader").style.visibility = "visible";
 
 
- var id1=	$("#id").val();
+var id1=	$("#id").val();
 	var name= $("#name").val();
 
 
@@ -111,7 +101,7 @@
 	$("#re").css("visibility","hidden");
      document.getElementById("loader").style.visibility = "visible";
 	$('#mySpinner').addClass('spinner');
- var id1=	$("#id").val();
+var id1=	$("#id").val();
 	var name= $("#name").val();
 
 
@@ -143,14 +133,14 @@
 
 
 
- function read_value() {
+function read_value() {
 
- $("#re").css("visibility","hidden");
+$("#re").css("visibility","hidden");
 
    document.getElementById("loader").style.visibility = "visible";
-  var url = script_url+"?action=read";
+ var url = script_url+"?action=read";
 
- $.getJSON(url, function (json) {
+$.getJSON(url, function (json) {
 
     // Set the variables from the results array
 
@@ -196,62 +186,35 @@
 
 
 </head>
-
-
-<body id="Cuerpo" style="color:white;">
+<body>
 <div align="center">
-  <div class="row justify-content-md-center" style= "margin-top:3vh;">
-      <div class="col md-4 text-center">
-          <img src="Logo.png" id="imagen" style="width:25vh">
-      </div>
-  </div>
-<div class="container" style="text-align:left;">
-  <div class="row">
-  <div class="col-12">
-  <form >
-    <div class="form-group">
-      <label for="exampleInputEmail1">Nombre y Apellido</label>
-      <input style="width:40vh;" type="email" class="form-control" name ="name" id="name" placeholder="Ingresar Nombre y Apellido">
-      <small style="color:red">Campo obligatorio*</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Codigo TMT</label>
-      <input type="email" class="form-control" name ="id" id="id" style="width:25vh;"placeholder="Ingresar Codigo TMT">
-      <small style="color:red">Campo obligatorio*</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Numero de celular</label>
-      <input style="width:40vh;" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Numero Celular">
-      <small style="color:red">Campo obligatorio*</small>
-    </div>
-    <label for="exampleInputEmail1" style="margin-bottom:3vh;">Categorias a participar</label>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="width:3vh; height: 3vh;" >
-      <p>4ta Categoría </p>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="width:3vh; height: 3vh;" >
-      <p>3ra Categoría</p>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="width:3vh; height: 3vh;" >
-      <p> 2da Categoría</p>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="width:3vh; height: 3vh;" >
-      <p>1ra Categoría</p>
-    </div>
-    <button type="submit" class="btn btn-primary" id = "b1" onClick="insert_value()" value = "Insert" style="height: 8vh; width: 20vh; font-size: 3vh; margin-top:2vh;">Inscribirme</button>
-  </form>
-  </div>
-  </div>
+<h1>CRUD OPERATION ON GOOGLE SPREAD SHEET, WEB APPLICATION USING GOOGLE APP SCRIPT .</h1>
+<p>This is simple application, You can develop your own logic based on your requiremnets.<p>
+<p>Be careful with the parameters you are sending, it should match the parameters that are recived in google app script.</p>
+
+
+<form >
+ID
+<input type = "text" name ="id" id="id">
+Name
+<input type = "text" name ="name" id="name">
+
+</form>
+
+<div id="loader"></div>
+
+<p id="re"></p>
+
+<input type = "button"  id = "b1" onClick="insert_value()" value = "Insert"></input>
+<input type="button" onclick="read_value()" value="Read" />
+<input type="button" onclick="update_value()" value="Update" />
+<input type="button" onclick="delete_value()" value="Delete" />
+<a href="https://docs.google.com/spreadsheets/d/1seJLBcvZaOVo0Xqf_x-pGNaqATAlJvC1yBhtjnZ9n5o/edit?usp=sharing" target="_blank">Click here to open Spread Sheet </a>
+<div id="showData">
 </div>
-
-
-
 </div>
 </body>
 <div align="center">
-<p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;">Alvear Club Tenis de Mesa | Todos los derechos reservados.</p>
+<p>ANDROID LABS 2017 | All Rights Reserved</p>
 </div>
 <html>

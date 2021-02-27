@@ -23,3 +23,23 @@ h1{
   padding-bottom: 3vh;
   color:white;
 }
+label{
+  font-size: 3.3vh;
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+}
+.form-check-input{
+  height: 3.3vh;
+  width: 3.3vh;
+}
+input{
+  height: 4vh;
+}
+.form-group{
+  margin-bottom: 2vh;
+}
+p{
+  font-size: 3vh;
+  margin-left: 3.5vh;
+  margin-bottom: 1.5vh;
+}
