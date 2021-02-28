@@ -1,89 +1,171 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="description" content="Inscripcion"/>
-    <meta name="keywords" content=""/>
-    <title>Listado 4ta Categoría</title>
-    <link rel="stylesheet" href="cssAlvear.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+<html>
+<head>
+<style>
+        table, th, td
+        {
+            margin:3vh 0;
+            padding:2px 0.8vh;
+            font:2vh Verdana;
+        }
+        th {
+            font-weight:bold;
+            font-family: 'Poppins';
+        }
+
+#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  visibility:hidden;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+
+  var script_url = "https://script.google.com/macros/s/AKfycbxZ_KeX9t1l4r9b4WzKzbHiHSA1LBPjyeWbJafG9B0puuLD4LL6/exec";
+
+  // print the returned data
+  function ctrlq(e) {
+
+
+	$("#re").html(e.result);
+	$("#re").css("visibility","visible");
+	read_value();
+
+  }
 
 
 
-  </head>
 
-  <body id="cuerpo">
+function read_value() {
+
+$("#re").css("visibility","hidden");
+
+   document.getElementById("loader").style.visibility = "visible";
+ var url = script_url+"?action=read";
+
+$.getJSON(url, function (json) {
+
+    // Set the variables from the results array
 
 
-    <div class="container-fluid justify-content-md-center aling-items-center " style=" margin-bottom:30px;">
 
-    <div class="row justify-content-md-center" style= "margin-top:3vh;">
 
-        <div class="col md-4 text-center">
-            <img src="Logo.png" id="imagen" style="width:25vh">
-        </div>
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
 
-    </div>
 
-    <h1>4ta Categoría</h1>
 
-    <div class="container-fluid" style="margin-top:3vh;">
-      <div class="row text-center">
-        <div class="col-4">
+        var header = table.createTHead();
+		var row = header.insertRow(0);
+    var cell0 = row.insertCell(0);
+		var cell1 = row.insertCell(1);
+		var cell2 = row.insertCell(2);
+    var cell3 = row.insertCell(3);
 
-            <ul class="list-group">
-              <li class="list-group-item active">Nombre y Apellido</li>
-              <li class="list-group-item">Pepe Matias</li>
-              <li class="list-group-item">Nakasone Leonardo</li>
-              <li class="list-group-item">Mangone Leandro</li>
-              <li class="list-group-item"></li>
+    cell0.innerHTML = "<b>N°</b>";
+		cell1.innerHTML = "<b>Nombre y Apellido</b>";
+    cell2.innerHTML = "<b>Puntaje TMT</b>";
+    cell3.innerHTML = "<b>Perfil</b>";
 
-            </ul>
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 1; i < json.records.length; i++) {
 
-        </div>
-        <div class="col-3">
+        tr = table.insertRow(-1);
+				var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = i;
+				tabCell = tr.insertCell(-1);
+				tabCell.innerHTML = json.records[i-1].NOMBRES;
+        tabCell = tr.insertCell(-1);
+				tabCell.innerHTML = json.records[i-1].PUNTAJETMT;
+        tabCell = tr.insertCell(-1);
+				tabCell.innerHTML = json.records[i-1].LINK;
+            }
 
-            <ul class="list-group">
-              <li class="list-group-item active">Club</li>
-              <li class="list-group-item">La Legión</li>
-              <li class="list-group-item">La Reja</li>
-              <li class="list-group-item">Alvear Club</li>
-              <li class="list-group-item"></li>
-            </ul>
 
-        </div>
-        <div class="col-2">
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+		document.getElementById("loader").style.visibility = "hidden";
+		$("#re").css("visibility","visible");
+    });
+	}
 
-            <ul class="list-group">
-              <li class="list-group-item active">Puntaje</li>
-              <li class="list-group-item">593</li>
-              <li class="list-group-item">523</li>
-              <li class="list-group-item">495</li>
-              <li class="list-group-item"></li>
-            </ul>
+  </script>
 
-        </div>
-        <div class="col-3">
 
-          <ul class="list-group">
-            <li class="list-group-item active">Perfil TMT</li>
-            <li class="list-group-item"><a href="">Ver</a></li>
-            <li class="list-group-item"><a href="">Ver</a></li>
-            <li class="list-group-item"><a href="">Ver</a></li>
-            <li class="list-group-item"><a href=""></a></li>
-          </ul>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        </div>
+  <meta charset="utf-8"/>
+  <meta name="description" content="AlvearClub"/>
+  <meta name="keywords" content=""/>
+  <title>Listado Inscriptos</title>
+  <link rel="stylesheet" href="cssAlvear.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+
+</head>
+<body id="cuerpo" style="color: white;">
+  <div class="row justify-content-md-center" style= "margin-top:3vh;">
+      <div class="col md-4 text-center">
+          <img src="Logo.png" id="imagen" style="width:25vh">
       </div>
+  </div>
+  <div align="center">
+    <h1 style="font-family: 'Poppins', sans-serif; font-size:4vh;">
+      Listado de inscriptos <br> 4ta Categoría</h1>
+
+  </div>
+  <div align="center">
+
+    <div id="loader" style="display:none"></div>
+    <p id="re"></p>
+
+    <input id="b1" type="button" onclick="read_value()"class="btn btn-primary" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh;" value="Ver Listado" />
+    <input id="final" type="button" onclick="read_value()"class="btn btn-primary" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; display:none;" value="Actualizar Listado" />
+    <div id="showData">
     </div>
 
-    <div class="text-center">
-    <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
-    </div>
-    </div>
-  </body>
-</html>
+  </div>
+  <div class="text-center">
+  <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $("#b1").on('click', function() {
+          $("#b1").hide();
+          $("#final").show();
+          return false;
+      });
+
+  });
+  </script>
+</body>
+<html>

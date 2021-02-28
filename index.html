@@ -3,7 +3,7 @@
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="google_connection.js"></script>
+
   <meta charset="utf-8"/>
   <meta name="description" content="AlvearClub"/>
   <meta name="keywords" content=""/>
@@ -16,6 +16,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+
+  <script type="text/javascript">
+  var script_url = "https://script.google.com/macros/s/AKfycbxZ_KeX9t1l4r9b4WzKzbHiHSA1LBPjyeWbJafG9B0puuLD4LL6/exec";
+
+  var str="";
+  $(document).ready(function() {
+
+  $('[name="checks[]"]').click(function() {
+
+    var arr = $('[name="checks[]"]:checked').map(function(){
+      return this.value;
+    }).get();
+
+    str = arr.join(', ');
+
+    $('#arr').text(JSON.stringify(arr));
+
+    $('#str').text(str);
+
+    });
+
+  });
+
+  // Make an AJAX call to Google Script
+  function insert_value() {
+
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
+    $('#mySpinner').addClass('spinner');
+    //creamos variables con los valores que el usuario ingresa en el formulario
+    //Se corresponden con los id de los input
+    var row1 = $("#code").val();
+    var row2 = $("#carrera").val();
+    var row3 = $("#e1").val();
+    var row4 = str;
+    var row5 = $("#e3").val();
+    var row6 = " ";//$("#e4").val();
+    var row7 = " ";//$("#aula").val();
+
+    var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
+    console.log(url);
+
+
+    var request = jQuery.ajax({
+
+      crossDomain: true,
+      url: url,
+      method: "GET",
+      dataType: "jsonp"
+    });
+    console.log(request);
+  }
+  </script>
+
+
+
 </head>
 
 <body id="cuerpo" style="color: white;">
@@ -69,7 +126,7 @@
       <small style="color:red; font-size: 1.5vh;">Campo obligatorio*</small>
       <br>
       <label for="exampleInputEmail1" style="margin-bottom:3vh; margin-top:2vh;">Metodo de pago:</label>
-      <select style="width:40vh; height:4.2vh;"id="e3" class="form-select" aria-label="Default select example">
+      <select id="e3" style="width:40vh; height:4.2vh;" class="form-select" aria-label="Default select example">
         <option value="Efectivo">Efectivo</option>
         <option value="Transferencia bancaria">Transferencia Bancaria</option>
         <option value="Mercado pago">Mercado Pago</option>
