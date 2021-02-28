@@ -33,6 +33,7 @@ label{
   width: 3.3vh;
 }
 input{
+  width:5vh;
   height: 4vh;
 }
 .form-group{
