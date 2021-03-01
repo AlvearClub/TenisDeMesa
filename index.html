@@ -20,7 +20,7 @@
 
   <script type="text/javascript">
   var script_url = "https://script.google.com/macros/s/AKfycbxZ_KeX9t1l4r9b4WzKzbHiHSA1LBPjyeWbJafG9B0puuLD4LL6/exec";
-
+  var aprobado="";
   var str="";
   $(document).ready(function() {
 
@@ -40,6 +40,8 @@
 
   });
 
+
+
   // Make an AJAX call to Google Script
   function insert_value() {
 
@@ -48,6 +50,10 @@
     $('#mySpinner').addClass('spinner');
     //creamos variables con los valores que el usuario ingresa en el formulario
     //Se corresponden con los id de los input
+    var numeros="0123456789";
+    var letras="abcdefghyjklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    var validNum="";
+    var validPal="";
     var row1 = $("#code").val();
     var row2 = $("#carrera").val();
     var row3 = $("#e1").val();
@@ -56,19 +62,21 @@
     var row6 = " ";//$("#e4").val();
     var row7 = " ";//$("#aula").val();
 
-    var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
-    console.log(url);
+      var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
+      console.log(url);
+
+      var request = jQuery.ajax({
+
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+      });
+      console.log(request);
+
+    }
 
 
-    var request = jQuery.ajax({
-
-      crossDomain: true,
-      url: url,
-      method: "GET",
-      dataType: "jsonp"
-    });
-    console.log(request);
-  }
   </script>
 
 
@@ -167,7 +175,9 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript">
+
   $(document).ready(function(){
+
       $("#b1").on('click', function() {
           $("#hoy").hide();
           $("#final").show();
@@ -175,6 +185,7 @@
       });
 
   });
+
   </script>
 
   <div class="text-center">
