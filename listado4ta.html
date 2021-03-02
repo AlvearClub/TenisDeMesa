@@ -13,10 +13,10 @@
         }
 
 #loader {
-  border: 16px solid #f3f3f3;
+  border: 16px solid white;
   border-radius: 50%;
-  border-top: 16px solid blue;
-  border-bottom: 16px solid blue;
+  border-top: 16px solid #052f6e;
+  border-bottom: 16px solid #052f6e;
   width: 60px;
   height: 60px;
   -webkit-animation: spin 2s linear infinite;
@@ -146,17 +146,19 @@ $.getJSON(url, function (json) {
   </div>
   <div align="center">
 
-    <div id="loader" style="display:none"></div>
+
     <p id="re"></p>
 
-    <input id="b1" type="button" onclick="read_value()"class="btn btn-primary" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh;" value="Ver Listado" />
-    <input id="final" type="button" onclick="read_value()"class="btn btn-primary" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; display:none;" value="Actualizar Listado" />
+    <input id="b1" type="button" onclick="read_value()"class="btn" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; border:1px solid white; color:white;" value="Ver Listado" />
+    <input id="final" type="button" onclick="read_value()"class="btn" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; display:none; border:1px solid white; color:white;" value="Actualizar Listado" />
     <div id="showData">
     </div>
+    <div id="loader"></div>
+
 
   </div>
   <div class="text-center">
-  <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+  <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
   </div>
 
 
