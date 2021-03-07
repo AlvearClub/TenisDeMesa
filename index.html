@@ -57,8 +57,20 @@
     var row4 = str; // Categorias a participar
     var row5 = $("#e3").val(); // Metodo de pago
 
-    var row6 = 0;//$("#e4").val();
-    var row7 = " ";//$("#aula").val();
+
+    var perfil = "\"https://www.tenisdemesaparatodos.com/jugadores_ficha.asp?codigo=";
+    var link = perfil.concat("",row1) ;
+    var path = "\"/html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/table/tbody/tr/td[1]/table/tbody/tr[1]/td/table/tbody/tr/td[2]\"";
+    var pathTeam= "\"/html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/table/tbody/tr/td[1]/table/tbody/tr[7]/td/table/tbody/tr[1]/td[2]/a/strong\"";
+    var importxml = "=IMPORTXML( ";
+    var concat1 = importxml.concat("",link);
+    var concat2 = concat1.concat(" \", ", path);
+    var concat3 = concat2.concat(")","");
+    var row6 = concat3;
+    //var row6 = 0;//$("#e4").val();
+    concat2 = concat1.concat(" \", ", pathTeam);
+    concat3 = concat2.concat(")","");
+    var row7 = concat3;//$("#aula").val();
 
     var validacionNumeros = /^[0-9]+$/;
     var validacionPalabras =  /^[a-zA-Z]+$/;
@@ -132,13 +144,14 @@
       <div class="col md-4 text-center">
           <img src="Logo.png" id="imagen" style="width:25vh">
       </div>
+      
   </div>
 
   <div class="container-fluid">
     <div class="row">
     <div class="col-12">
       <form action="" id="hoy" class="formulario">
-        <h1 style="font-family: 'Poppins', sans-serif; font-size:3.5vh; margin-bottom:4vh;">
+        <h1 style="font-family: 'Poppins', sans-serif; font-size:3.5vh; margin-bottom:5vh;">
           Inscripción 44° TMT <br> Alvear Nittaku</h1>
         <input type="text" class="formulario__input" name="Carrera" id="carrera">
         <label for="" class="formulario__label">Nombre y Apellido</label>
@@ -148,7 +161,7 @@
         <label for="" class="formulario__label">Celular (contacto)</label>
 
 
-        <label style="font-size: 2vh; margin-bottom:3.5vh;">Metodo de pago</label>
+        <label style="font-size: 2vh; margin-bottom:3vh;">Metodo de pago</label>
         <select id="e3" style="width:70%; height:5vh; background:#052f6e; color:white; font-size:2vh; margin-bottom:5vh;" class="form-select" aria-label="Default select example">
           <option value="Efectivo" style="font-size:1.3vw;">Efectivo</option>
           <option value="Transferencia bancaria" style="font-size:1.3vw;">Transferencia Bancaria</option>
@@ -188,7 +201,8 @@
       <div id="final" class="col-lg-12" style="display:none">
 
         <div class="row text-center">
-          <h2>Gracias por inscribirte, esperamos verte en el torneo, mucha suerte.</h2>
+          <h1>Gracias por inscribirte. <br> Esperamos verte en el torneo, mucha suerte.</h1>
+          <h3 style="color:red;">Recorda llegar 20 minutos antes del inicio de tu categoria.</h3>
           </div>
           <div class="row " style="margin-top: 2vh;">
 
