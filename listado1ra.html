@@ -4,14 +4,19 @@
         table, th, td
         {
             margin:3vh 0;
-            padding:2px 0.8vh;
-            font:2vh Verdana;
+            padding:1vh 1vh;
+            font: 2vh 'Verdana';
+            text-align: center;
         }
         th {
             font-weight:bold;
-            font-family: 'Poppins';
+            font-family: Verdana, Tahoma, sans-serif;
         }
-
+        bdi{
+          font-size: 2.5vh;
+          font-weight:bold;
+          font-family: inherit;
+        }
 #loader {
   border: 16px solid white;
   border-radius: 50%;
@@ -79,27 +84,23 @@ $.getJSON(url, function (json) {
 		var cell1 = row.insertCell(1);
 		var cell2 = row.insertCell(2);
     var cell3 = row.insertCell(3);
-    var nro= 1;
-
-    cell0.innerHTML = "<b>N°</b>";
-		cell1.innerHTML = "<b>Nombre y Apellido</b>";
-    cell2.innerHTML = "<b>Puntaje TMT</b>";
-    cell3.innerHTML = "<b>Perfil</b>";
+    var nro = 1;
+    cell0.innerHTML = "<bdi>N°</bdi>";
+		cell1.innerHTML = "<bdi>Nombre y Apellido</bdi>";
 
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 1; i < json.records.length; i++) {
-        if (json.records[i-1].CATEGORIAS.includes('1ra')) {
 
-          tr = table.insertRow(-1);
-  				var tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = nro;
-  				tabCell = tr.insertCell(-1);
-  				tabCell.innerHTML = json.records[i-1].NOMBRES;
-          tabCell = tr.insertCell(-1);
-  				tabCell.innerHTML = json.records[i-1].PUNTAJETMT;
-          tabCell = tr.insertCell(-1);
-  				tabCell.innerHTML = json.records[i-1].LINK;
-          nro= nro +1;
+          if (json.records[i-1].CATEGORIAS.includes('1ra')) {
+
+            tr = table.insertRow(-1);
+    				var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = nro;
+    				tabCell = tr.insertCell(-1);
+    				tabCell.innerHTML = json.records[i-1].NOMBRES;
+            tabCell = tr.insertCell(-1);
+
+            nro = nro + 1;
           }
         }
 
@@ -145,7 +146,6 @@ $.getJSON(url, function (json) {
 
   </div>
   <div align="center">
-
 
     <p id="re"></p>
 

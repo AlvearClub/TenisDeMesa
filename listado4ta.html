@@ -5,11 +5,11 @@
         {
             margin:3vh 0;
             padding:2px 0.8vh;
-            font:2vh Verdana;
+            font:2.5vh 'Poppins';
         }
         th {
             font-weight:bold;
-            font-family: 'Poppins';
+            font-family: Verdana, Tahoma, sans-serif;
         }
 
 #loader {
@@ -82,25 +82,19 @@ $.getJSON(url, function (json) {
     var nro = 1;
     cell0.innerHTML = "<b>N°</b>";
 		cell1.innerHTML = "<b>Nombre y Apellido</b>";
-    cell2.innerHTML = "<b>Puntaje TMT</b>";
-    cell3.innerHTML = "<b>Perfil</b>";
 
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 1; i < json.records.length; i++) {
 
           if (json.records[i-1].CATEGORIAS.includes('4ta')) {
+
             tr = table.insertRow(-1);
     				var tabCell = tr.insertCell(-1);
             tabCell.innerHTML = nro;
     				tabCell = tr.insertCell(-1);
     				tabCell.innerHTML = json.records[i-1].NOMBRES;
-            tabCell = tr.insertCell(-1);
-    				tabCell.innerHTML = json.records[i-1].PUNTAJETMT;
-            tabCell = tr.insertCell(-1);
-    				tabCell.innerHTML = json.records[i-1].LINK;
             nro = nro + 1;
           }
-
         }
 
 
@@ -145,7 +139,6 @@ $.getJSON(url, function (json) {
 
   </div>
   <div align="center">
-
 
     <p id="re"></p>
 

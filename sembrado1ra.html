@@ -1,0 +1,301 @@
+<html>
+<head>
+  <style>
+    table, th, td
+    {
+        margin:2vh 0;
+        
+       
+        font:2vh Verdana;
+    }
+    td{
+      text-align: left;
+      padding:2vh 1.3vh;
+    }
+    th {
+        font-weight:bold;
+        font-family: 'Poppins';
+    }
+    thead{
+      text-align: center;
+    }
+    bdi{
+      font-size: 2.5vh;
+      font-weight:bold;
+      font-family: inherit;
+    }
+#loader {
+border: 16px solid white;
+border-radius: 50%;
+border-top: 16px solid #052f6e;
+border-bottom: 16px solid #052f6e;
+width: 60px;
+height: 60px;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+visibility:hidden;
+}
+
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <meta charset="utf-8"/>
+  <meta name="description" content="AlvearClub"/>
+  <meta name="keywords" content=""/>
+  <title>Sembrado 1ra</title>
+  <link rel="stylesheet" href="cssAlvear.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <script>
+     var script_url = "https://script.google.com/macros/s/AKfycbxZ_KeX9t1l4r9b4WzKzbHiHSA1LBPjyeWbJafG9B0puuLD4LL6/exec";
+
+// print the returned data
+function ctrlq(e) {
+
+
+$("#re").html(e.result);
+$("#re").css("visibility","visible");
+read_value();
+
+}
+
+
+
+
+function read_value() {
+
+$("#re").css("visibility","hidden");
+
+ document.getElementById("loader").style.visibility = "visible";
+
+var url = script_url+"?action=read";
+
+$.getJSON(url, function (json) {
+
+  // Set the variables from the results array
+
+      // CREATE DYNAMIC TABLE.
+      var table = document.createElement("table");
+
+
+
+      var header = table.createTHead();
+ 
+  var nro = "";
+  var matriz = [];
+  var jugadoresCant = 0 ;
+  var w = 0 ;
+      // ADD JSON DATA TO THE TABLE AS ROWS.
+      for (var i = 1; i < json.records.length; i++) {
+
+        if ( json.records[i-1].CATEGORIAS.includes('1ra') &&  json.records[i-1].PUNTAJETMT != 0 ) {
+
+          matriz [w]= [ json.records[i-1].NOMBRES , json.records[i-1].CLUB , json.records[i-1].PUNTAJETMT , ""];
+          jugadoresCant= jugadoresCant+1;
+          w++;
+        }
+        else{
+          //no incluyen 1ra y no tienen puntaje un
+        }
+      }
+      if(jugadoresCant>5){ 
+        for (var j = 1; j < jugadoresCant; j++) {
+          for (var k = 1; k < jugadoresCant; k++) {
+            if(matriz[j-1][2]>matriz[k-1][2]){
+              
+              nro=matriz[j-1][0];
+              matriz[j-1][0] = matriz[k-1][0];
+              matriz[k-1][0] = nro;
+
+              nro=matriz[j-1][1];
+              matriz[j-1][1] = matriz[k-1][1];
+              matriz[k-1][1] = nro;
+
+              nro=matriz[j-1][2];
+              matriz[j-1][2] = matriz[k-1][2];
+              matriz[k-1][2] = nro;
+
+            }
+          }
+        }
+      }
+      
+
+      //var jugadoresCant = json.records.length - 1; //-1
+      var zonasCant;
+      
+      var abecedario = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+      if(jugadoresCant>5){
+
+        zonasCant = Math.trunc(jugadoresCant/3);
+      
+        var contador = -1 ;
+         
+        for(var i = 0; i < jugadoresCant ; i++ ){
+
+          if( -1 < i && i <  zonasCant ){
+
+            contador++;
+            matriz[i][3] = abecedario[contador];
+
+          }
+          else if( (zonasCant - 1) <  i && i < (zonasCant*2) ){
+
+            matriz[i][3] = abecedario[contador];
+            contador--;
+
+          }
+          else if( ((zonasCant*2) - 1) < i && i < (zonasCant*3) ){
+
+            contador++;
+            matriz[i][3] = abecedario[contador];
+
+          }
+          else if( ((zonasCant*3) - 1) < i && i < (zonasCant*4) ){
+
+            matriz[i][3] = abecedario[contador];
+            contador--;
+
+          }
+          else if( ((zonasCant*4) - 1) < i && i < (zonasCant*5) ){
+
+            contador++;   
+            matriz[i][3] = abecedario[contador];
+
+          }
+          else if( ((zonasCant*5) - 1) < i && i < (zonasCant*6) ){
+
+            matriz[i][3] = abecedario[contador];
+            contador--;
+
+          }
+          else if( ((zonasCant*6) - 1) < i && i < (zonasCant*7) ){
+
+            contador++;   
+            matriz[i][3] = abecedario[contador];
+
+          }
+          else if( ((zonasCant*7) - 1) < i && i  < (zonasCant*8)  ){
+
+            matriz[i][3] = abecedario[contador];
+            contador--;
+
+          }
+
+        }
+        
+
+
+        for(var i = 0; i<zonasCant; i++){
+
+
+          
+          tr = table.insertRow(-1);
+    			var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi> Zona " + abecedario[i]+ " Mesa "+ (i+1)+"</bdi>");
+
+          for(var j = 0; j<jugadoresCant; j++){
+
+            if( matriz[j][3] == (abecedario[i]) ){
+
+              tr = table.insertRow(-1);
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = matriz[j][0];
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = matriz[j][1];
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = (""+matriz[j][2]+" pts");
+
+            }
+
+          }
+          
+          tr = table.insertRow(-1);
+    			var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          
+        }
+
+
+
+      }
+      else{
+        alert("No se ha alcanzado la cantidad minima de participantes para realizar la categoria, cantidad de inscriptos: "+jugadoresCant);
+      }
+
+      // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+      var divContainer = document.getElementById("showData");
+      divContainer.innerHTML = "";
+      divContainer.appendChild(table);
+  document.getElementById("loader").style.visibility = "hidden";
+  $("#re").css("visibility","visible");
+  
+  });
+}
+  </script>
+
+</head>
+<body id="cuerpo" style="color: white;">
+  <div class="row justify-content-md-center" style= "margin-top:3vh;">
+      <div class="col md-4 text-center">
+          <img src="Logo.png" id="imagen" style="width:25vh">
+      </div>
+  </div>
+  <div align="center">
+    <h1 style="font-family: 'Poppins', sans-serif; font-size:4vh;">
+      Sembrado <br> 1ra Categoría</h1>
+      <p style="color:red; font-weight:bold; font-size: 2vh;">IMPORTANTE: Los sembrados de zona se actualizan todos los dias a las 8:00 am.<br> Estos pueden variar segun el listado de inscriptos hasta el momento.</p>
+  </div>
+  <div align="center">
+
+    <input id="b1" type="button" onclick="read_value()"class="btn" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; border:1px solid white; color:white;" value="Ver Sembrado" />
+    <input id="final" type="button" onclick="read_value()"class="btn" style="height: 8vh; width: 40vh; font-size: 3vh; margin-bottom: 3vh; display:none; border:1px solid white; color:white;" value="Actualizar Sembrado" />
+    <div id="showData">
+    </div>
+    <div id="loader"></div>
+  </div>
+
+
+  
+
+
+
+  <div class="text-center">
+  <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $("#b1").on('click', function() {
+          $("#b1").hide();
+          $("#final").show();
+          return false;
+      });
+
+  });
+  </script>
+</body>
+<html>
