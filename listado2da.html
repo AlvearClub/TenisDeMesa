@@ -105,7 +105,7 @@ $.getJSON(url, function (json) {
             tabCell = tr.insertCell(-1);
             var perfil = "https://www.tenisdemesaparatodos.com/jugadores_ficha.asp?codigo=";
             var link = perfil.concat("",json.records[i-1].CODIGOTMT) ;
-    				tabCell.innerHTML = "<a href= \" "+link+" \">Ver Perfil</a>";
+    				tabCell.innerHTML = "<a href= \" "+link+" \" target=\"_blank\" >Ver Perfil</a>";
             nro = nro + 1;
           }
           else if(json.records[i-1].CATEGORIAS.includes('2da') && nro == 25 && json.records[i-1].PUNTAJETMT > -1){
@@ -211,7 +211,7 @@ $.getJSON(url, function (json) {
 
   </div>
   <div class="text-center">
-    <a href="https://wa.link/tcz24v" class="errorListado">Si te inscribiste y no aparece <br> tu nombre en el listado click acá..</a>
+    <a href="https://wa.link/tcz24v" target="_blank" class="errorListado">Si te inscribiste y no aparece <br> tu nombre en el listado click acá..</a>
     <p style="font-size:1.5vh; margin-top:2vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
   </div>
 
