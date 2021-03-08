@@ -89,41 +89,37 @@
               alert("Campo Contacto obligatorio");
             }
             else{
+              
               if(  (row4.includes('1ra')==false) && (row4.includes('2da')==false) && (row4.includes('3ra')==false) && (row4.includes('4ta')==false) ){
                 alert("Campo Categoria Obligatorio");  
               } 
+              
+                  
               else{
-                  if(row1.match(validacionNumeros)==false){
-                    alert("Solo se pueden ingresar datos numericos")
-                  }
-                  else{
-                    if(row2.match(validacionPalabras)==false){
-                      alert("Solo se puden ingresar letras")
-                    }
-                    else{
-                      if(row3.match(validacionNumeros)==false){
-                          alert("Solo se pueden ingresar datos numericos")
-                      }
-                      else{
-                              var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
-                              console.log(url);
+            
+                    var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
+                       console.log(url);
+ 
+                       var request = jQuery.ajax({
 
-                              var request = jQuery.ajax({
-
-                                crossDomain: true,
-                                url: url,
-                                method: "GET",
-                                dataType: "jsonp"
-                              });
+                       crossDomain: true,
+                       url: url,
+                       method: "GET",
+                       dataType: "jsonp"
+                      });
                               
-                              console.log(request);
-                            }
-                          }
-                        
-                      
-                    
-                  }
-              }
+                       console.log(request);
+                       
+                       $(document).ready(function(){
+
+                      $("#b1").on('click', function() {
+                          $("#hoy").hide();
+                          $("#final").show();
+                          return false;
+                      });
+
+                      });
+              } 
             }
         }
     }
@@ -201,8 +197,8 @@
       <div id="final" class="col-lg-12" style="display:none">
 
         <div class="row text-center">
-          <h1>Gracias por inscribirte. <br> Esperamos verte en el torneo, mucha suerte.</h1>
-          <h3 style="color:red;">Recorda llegar 20 minutos antes del inicio de tu categoria.</h3>
+          <h1 style="font-size: 3vh;">Gracias por inscribirte. <br> Esperamos verte en el torneo. <br> Mucha suerte.</h1>
+          <h3 style="color:red; font-size: 2.5vh;">Recorda llegar 20 minutos antes <br> del inicio de tu categoria.</h3>
           </div>
           <div class="row " style="margin-top: 2vh;">
 
@@ -222,15 +218,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type="text/javascript">
 
-  $(document).ready(function(){
-
-      $("#b1").on('click', function() {
-          $("#hoy").hide();
-          $("#final").show();
-          return false;
-      });
-
-  });
+  
 
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
