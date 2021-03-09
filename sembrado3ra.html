@@ -117,8 +117,8 @@ $.getJSON(url, function (json) {
         }
       }
       if(jugadoresCant>5){ 
-        for (var j = 1; j < jugadoresCant; j++) {
-          for (var k = 1; k < jugadoresCant; k++) {
+        for (var j = 1; j < jugadoresCant+1; j++) {
+          for (var k = 1; k < jugadoresCant+1; k++) {
             if(matriz[j-1][2]>matriz[k-1][2]){
               
               nro=matriz[j-1][0];
