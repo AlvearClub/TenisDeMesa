@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="description" content="Inscripcion"/>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <meta name="keywords" content=""/>
     <title>InscripcionTMT</title>
     <link rel="stylesheet" href="cssAlvear.css"/>
@@ -12,7 +14,303 @@
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
+/*===== VARIABLES CSS =====*/
+:root {
+--header-height: 3rem;
+
+/*===== Colors =====*/
+--first-color: #0F4EAE;
+--first-color-light: #C4C7F5;
+--dark-color: white;
+--white-color: #FBFBFB;
+
+/*===== Font and typography =====*/
+--body-font: 'Open Sans', sans-serif;
+--nav-name-font-size: 1.5rem;
+--normal-font-size: .938rem;
+
+/*===== z index =====*/
+--z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+:root {
+--nav-name-font-size: 1rem;
+--normal-font-size: 1rem;
+}
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+box-sizing: border-box;
+}
+
+body {
+margin: var(--header-height) 0 0 0;
+font-family: var(--body-font);
+font-size: var(--normal-font-size);
+font-weight: 600;
+}
+
+.encabezado ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.encabezado a{
+text-decoration: none;
+}
+
+.bd-grid {
+max-width: 1024px;
+display: grid;
+grid-template-columns: 100%;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
+}
+
+/*===== HEADER =====*/
+.encabezado {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: var(--header-height);
+padding: 0 1rem;
+background-color: #052f6e;
+z-index: var(--z-fixed);
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+.encabezado__logo {
+color: var(--dark-color);
+}
+
+.encabezado__toggle {
+font-size: 1.7rem;
+cursor: pointer;
+}
+
+/*===== NAV =====*/
+@media screen and (max-width: 768px) {
+.nave {
+position: fixed;
+top: 0;
+left: -100%;
+background-color: var(--first-color);
+width: 80%;
+height: 100%;
+padding: 2rem 0;
+z-index: var(--z-fixed);
+transition: .5s;
+overflow-y: auto;
+}
+}
+
+.nave__content {
+display: flex;
+flex-direction: column;
+}
+
+.nave__perfil {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.nave__img {
+display: flex;
+justify-content: center;
+width: 60px;
+height: 60px;
+border-radius: 0%;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.nave__img img {
+width: 60px;
+}
+
+.nave__name {
+display: block;
+font-size: var(--nav-name-font-size);
+color: var(--white-color);
+}
+
+.nave__item {
+margin-bottom: 2rem;
+}
+
+.nave__link {
+color: var(--first-color-light);
+}
+
+.nave__link:hover {
+color: var(--white-color);
+}
+
+/*Show menu*/
+.show {
+left: 0;
+}
+
+/*Active link*/
+.active {
+color: var(--white-color);
+}
+
+.dropdowne__link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.dropdowne__icon {
+font-size: 1.3rem;
+transition: .5s;
+}
+
+.dropdowne__menu {
+margin: 1rem 0 0 1rem;
+display: none;
+}
+
+.dropdowne__item {
+margin: 1rem 0;
+}
+
+.dropdowne:hover > .dropdowne__menu {
+display: block;
+}
+
+.dropdowne:hover .dropdowne__icon {
+transform: rotate(180deg);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 576px) {
+.nave {
+width: 288px;
+}
+}
+
+@media screen and (min-width: 768px) {
+body {
+margin: 0;
+}
+.encabezado {
+height: calc(var(--header-height) + 1rem);
+}
+.encabezado__logo, .encabezado__toggle {
+display: none;
+}
+.nave {
+width: 100%;
+}
+.nave__content {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+.nave__perfil {
+flex-direction: row;
+text-align: initial;
+margin-bottom: 0;
+}
+.nave__img {
+width: 40px;
+height: 40px;
+margin-right: .5rem;
+margin-bottom: 0;
+}
+.nave__img img {
+width: 46px;
+}
+.nave__name {
+color: var(--dark-color);
+}
+.nave__list {
+display: flex;
+align-items: center;
+}
+.nave__item {
+margin: 0 1.5rem;
+padding: 1.4rem 0;
+}
+.nave__link {
+color: var(--dark-color);
+}
+.nave__link:hover {
+color: var(--first-color-light);
+}
+/*Active link new color*/
+.active {
+color: var(--first-color-light);
+}
+.dropdowne {
+position: relative;
+}
+.dropdowne__menu {
+position: fixed;
+margin: 0;
+top: calc(var(--header-height) + 1rem);
+padding: .5rem 1.5rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: .5rem;
+}
+.dropdowne__item {
+margin: .5rem 0;
+}
+}
+
+@media screen and (min-width: 1024px) {
+.bd-grid {
+margin-left: auto;
+margin-right: auto;
+}
+}
+p{
+font-size: 2.7vh;
+}
+.container-fluid img{
+width: 4.5vh;
+height: 4vh;
+}
+.nave__item img{
+width: 4.5vh;
+height: 4vh;
+}
+.footer{
+background-color: #052f6e;
+padding: 20px 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 5vh;
+}
+@media(max-width: 991px){
+.footer{
+padding: 20px 50px;
+flex-direction: column-reverse;
+text-align: center;
+}
+}
+.text{
+color:white;
+font-size: 1.8vh;
+}
+</style>
     <style media="screen">
       .panel {
       border-width: 0 0 1px 0;
@@ -144,193 +442,79 @@
 
   <body id="cuerpo">
 
+    <header class="encabezado">
+      <a href="#" class="encabezado__logo">Alvear Club</a>
 
-    <div class="container-fluid justify-content-md-center aling-items-center " style=" margin-bottom:30px;">
+      <i class='bx bx-menu encabezado__toggle' id="encabezado-toggle" style="color:white;"></i>
+
+      <nav class="nave" id="nave-menu">
+          <div class="nave__content bd-grid">
+              <a href="inicio.html" class="nave__perfil">
+                  <div class="nave__img">
+                      <img src="logo.png" alt="">
+                  </div>
+                  
+                  <div>
+                      <span class="nave__name" style="margin-left: 0.1vh;">Alvear</span>
+                      <span class="nave__name">Club</span>
+                  </div>
+              </a>
+
+              <div class="nave__menu">
+                  <ul class="nave__list">
+                      <li class="nave__item"><a href="index.html" class="nave__link active">Inscribirme</a></li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Listado de Inscriptos <i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu">
+                              <li class="dropdowne__item"><a href="listado4ta.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado3ra.html" class="nave__link">3ra Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado2da.html" class="nave__link">2da Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Sembrado de Zonas<i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu">
+                              <li class="dropdowne__item"><a href="sembrado4ta.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado3ra.html" class="nave__link">3ra Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado2da.html" class="nave__link">2da Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+
+                      <li class="nave__item"><a href="ConsultasAcercaDelTorneo.html" class="nave__link">Consultas</a></li>
+                      <li class="nave__item"><a href="https://www.bit.ly/SoftwareSAIT" class="nave__link">Acerca del Sistema</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+    <div class="container justify-content-md-center aling-items-center " style=" margin-bottom:30px; margin-top: 9vh;">
       <div class="row justify-content-md-center" style= "margin-top:3vh;">
         <div class="col md-4 text-center">
             <img src="Logo.png" id="imagen" style="width:25vh">
         </div>
       </div>
-      <div class="row justify-content-md-center">
-        <div class="col col-sm-10 text-center">
 
 
 
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-
-
-<section class="pb-md-5">
-  <div class="container pb-md-5">
-    <div class="row">
-      <div class="col-12 mt-5 ">
         <h2 class="text-center d-block pb-4" style="color:white; font-size: 3vh; margin-bottom:3vh;">
           Preguntas frecuentes
         </h2>
-        <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
-                <button style="font-size: 3vh;" align="left" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  ¿Hay protocolos de COVID-19 en los torneos de Alvear Club?
-                </button>
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                Si, cumplimos con todos los protocolos indicados por la Federacion Argentina de Tenis de Mesa(FATM).
-                <br>
-                Estos son:
-                <ul class="list-group">
-                  <li class="list-group-item d-flex justify-content-start align-items-center" style="background:#052f6e; color: white;">
-                    <span class="badge bg-danger rounded-pill">1</span>&nbsp;&nbsp;&nbsp;Uso de tapabocas mientras no se esté jugando
-                  </li>
-                  <li class="list-group-item d-flex justify-content-start align-items-center" style="background:#052f6e; color: white;">
-                    <span class="badge bg-danger rounded-pill">2</span>&nbsp;&nbsp;&nbsp;Sin cambio de lado entre sets de un partido
-                  </li>
-                  <li class="list-group-item d-flex justify-content-start align-items-center" style="background:#052f6e; color: white;">
-                    <span class="badge bg-danger rounded-pill">3</span>&nbsp;&nbsp;&nbsp;Desinfeccion de pelotitas y mesas al finalizar un partido
-                  </li>
-                  <li class="list-group-item d-flex justify-content-start align-items-center" style="background:#052f6e; color: white;">
-                    <span class="badge bg-danger rounded-pill">4</span>&nbsp;&nbsp;&nbsp;Desinfeccion de manos al finalizar los partidos
-                  </li>
-                  <li class="list-group-item d-flex justify-content-start align-items-center" style="background:#052f6e; color: white;">
-                    <span class="badge bg-danger rounded-pill">5</span>&nbsp;&nbsp;&nbsp;Declaracion jurada obligatoria para los participantes del torneo
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- end of panel -->
-
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <button  style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  ¿Como llegar?
-                </button>
-              </h4>
-            </div>
-            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                El club Alvear esta ubicado en : Jose Enrique Rodo 4190 <br> Parque Avellaneda, CABA <br>
-                Las lineas de colectivos que pasan por la zona son : 1, 2, 4, 5, 7, 8, 36, 46, 49, 55, 63, 86, 88, 92, 96, 107, 113, 114, 126, 163, 180, 182. <br><br>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5209495904496!2d-58.48452838481283!3d-34.64154438044969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc99ed6535b4d%3A0xbe3433c0d5c1a357!2sAlvear%20Club!5e0!3m2!1ses-419!2sar!4v1614569516102!5m2!1ses-419!2sar" style="border:0; width:30vh; height: 30vh;" allowfullscreen="" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <button  style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  Quiero obtener el Sistema Automatizado de Inscripciones de Torneos
-                </button>
-              </h4>
-            </div>
-            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                El SAIT (Sistema Automatizado de Inscripciones de Torneos) es un sistema de inscripciones online que ofrece la categorizacion de los 
-                inscriptos en diferentes planillas almacenadas en Google con todos los datos de los participantes(Fecha y horario de inscripcion, Codigo TMT, Nombre y Apellido, Contacto, Categorias a participar, Puntaje TMT y por ultimo un link de acceso al perfil TMT del inscripto).
-                <br>
-
-                Tambien cuenta con diferentes paginas web que muestran listados de inscriptos por categoria y sembrados de zonas por categorias que se actualizan en tiempo real y los 
-                inscriptos pueden consultar las 24hs.
-                <br>
-                <a style="color:red" href="https://api.whatsapp.com/send?phone=1166965813&text=Hola,%20me%20gustar%C3%ADa%20obtener%20mas%20informaci%C3%B3n%20acerca%20de%20c%C3%B3mo%20funciona%20el%20SAIT%20y%20su%20presupuesto." target="_blank">Para consultas y presupuestos acerca del sistema click aqui.</a>
-
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <button  style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  ¿Que es TMT?
-                </button>
-              </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                TMT(Tenis de Mesa para Todos) es un circuito de torneos de tenis de mesa donde cualquier persona puede participar, desde principiantes hasta federados.
-                El participante que se inscribe cuenta con un codigo unico (Codigo TMT) y un puntaje que lo posiciona en la categoria correspondiente en el ranking.
-                Los torneos pueden ser organizados por cualquier club registrado en el circuito y dependera de este las categorias que ofrecera en su torneo.
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <button  style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  ¿Como me inscribo en un TMT?
-                </button>
-              </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                Todas las inscripciones a los torneos TMT son con previa confirmacion(pre-inscripcion). Dependera de cada club elegir el medio por el cual se realizan,
-                las mismas pueden ser consultadas en la ficha correspondiente al torneo que se encuentra en el
-                <a href="https://www.tenisdemesaparatodos.com/calendario.asp" target="_blank">calendario de torneos en la pagina de Tenis de Mesa para Todos.</a>
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-                <button style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  ¿Tienen algun costo participar?
-                </button>
-              </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                El club que organiza su respectivo torneo cobrara por categoria participada, sin embargo el valor de las inscripciones varia segun los servicios ofrecidos en ese torneo.
-                Teniendo en cuenta la situacion mundial por la pandemia del COVID-19 los clubes tienen una mayor inversion en los torneos por los protocolos que exige la Federacion Argentina de Tenis de Mesa(FATM).
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-          <div class="panel">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <button  style="font-size: 3vh;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  Contacto
-                </button>
-              </h4>
-            </div>
-            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-              <div class="panel-body" align="left" style="margin-bottom:0.8vh;">
-                Para mas consultas acerca del torneo <a style="color:red;" href="https://api.whatsapp.com/send?phone=1166965813&text=Hola,%20me%20gustar%C3%ADa%20obtener%20mas%20informaci%C3%B3n%20acerca%20de%20torneo%20en%20Alvear." target="_blank">click aquí.</a>
-              </div>
-            </div>
-          </div>
-          <!-- end of panel -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-
-        </div>
-      </div>
-
+        
 
     </div>
-    <div class="text-center">
-    <p style="font-size:1.5vh; margin-top:0vh; margin-bottom:3vh;padding-right:3.6vh;color: white;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
-    </div>
+    <section class="footer" style="margin-right: 2vh;">
+      <p class="text">Diseño y Desarrollo por Diego Simón</p>
+      <p class="text" style="font-size: 1.5vh;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+    </section>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

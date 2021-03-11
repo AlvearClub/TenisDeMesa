@@ -56,7 +56,7 @@ header {
 }
 
 .contenedor {
-    width: 100%
+    width: 100%;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -64,7 +64,7 @@ header {
 }
 
 .instrucciones {
-    width: 90%;
+    width: 90%;;
     display: flex;
     flex-direction: row;
     justify-content: center;
