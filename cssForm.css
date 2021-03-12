@@ -51,7 +51,7 @@ body {
 .formulario__label {
   padding-left: 10px;
   position: absolute;
-  margin-top: -13.5vh;
+  margin-top: -12.5vh;
   z-index: -20;
   color: white;
   transition: all 0.2s;
