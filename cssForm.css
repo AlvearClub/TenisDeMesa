@@ -46,12 +46,12 @@ body {
   border-right: 1px solid white;
 }
 .formulario__input:focus + .formulario__label{
-  margin-top: -17vh;
+  margin-top: -18.7vh;
 }
 .formulario__label {
   padding-left: 10px;
   position: absolute;
-  margin-top: -13vh;
+  margin-top: -13.5vh;
   z-index: -20;
   color: white;
   transition: all 0.2s;
@@ -64,7 +64,7 @@ body {
   border: none;
 }
 .fijar {
-  margin-top: -17vh;
+  margin-top: -18.7vh;
 }
 input{
   color:white;
