@@ -55,7 +55,7 @@
               var row2 = $("#carrera").val(); //Nombre y Apellido 
               var row3 = $("#e1").val(); // Contacto 
               var row4 = str; // Categorias a participar
-              var row5 = $("#e3").val(); // Metodo de pago
+              var row5 = " " // Metodo de pago
           
           
               var perfil = "\"https://www.tenisdemesaparatodos.com/jugadores_ficha.asp?codigo=";
@@ -93,7 +93,7 @@
                       }
                       else{
                         
-                        if(  (row4.includes('1ra')==false) && (row4.includes('4ta')==false) && (row4.includes('5ta')==false) && (row4.includes('6ta')==false) ){
+                        if(  (row4.includes('1ra') == false) && (row4.includes('4ta') == false) && (row4.includes('5ta') == false) && (row4.includes('6ta') == false) ){
                           alert("Campo Categoria Obligatorio");  
                           window.location = "formulario.html";
                         } 
@@ -511,6 +511,8 @@
                     <input type="number" class="form__input" name="E-1" id="e1"  placeholder=" ">
                     <label for="" class="form__label">Celular (contacto)</label>
                 </div>
+
+              <!-- 
                 <label style="font-size: 2vh; margin-bottom:3vh;">Metodo de pago</label>
                 <select id="e3" style="width:70%; height:5vh; background:#052f6e; color:white; font-size:2vh; margin-bottom: 1vh;" class="form-select" aria-label="Default select example">
                 <option value="Efectivo" style="font-size:1.3vw;">Efectivo</option>
@@ -520,24 +522,31 @@
                 <p style="font-size: 1.5vh; margin-bottom:5vh; margin-left: 0vh; padding-right: 4vh;">
                 Una vez seleccionado el metodo de pago nos pondremos en contacto con usted para realizar la transaccion del mismo, efectivo se abona el dia del torneo
                 </p>
+              -->
 
-                <label style="font-size: 2vh; margin-bottom:3.5vh;">Categorias a participar:</label>
+
+                <label style="font-size: 2.5vh; margin-bottom:3.5vh;">Categorias a participar:</label>
+
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="checks[]" value="6ta" id="defaultCheck4" style="width:3vh; height: 3vh; margin-bottom: 1vh;">
                 <p style="font-size:2.5vh;">6ta Categoría - 10:00 hs</p>
                 </div>
+
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="checks[]" value="5ta" id="defaultCheck3" style="width:3vh; height: 3vh; margin-bottom: 1vh;" >
                 <p style="font-size:2.5vh;">5ta Categoría - 13:00 hs</p>
                 </div>
+
                 <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="checks[]" value="4ta" id="defaultCheck2" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
                 <p style="font-size:2.5vh;"> 4ta Categoría - 16:00 hs</p>
                 </div>
+
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="checks[]" value="1ra" id="defaultCheck1"  style="width:3vh; height: 3vh; margin-bottom: 1vh;" >
-                <p style="font-size:2.5vh;">1ra Categoría - 19:00 hs</p>
+                  <input class="form-check-input" type="checkbox" name="checks[]" value="1ra" id="defaultCheck1" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
+                  <p style="font-size:2.5vh;"> 1ra Categoría - 19:00 hs</p>
                 </div>
+
                 <div id="loader" style="display:none;"></div>
                 <button type="submit" class="btn" id = "b1" onClick="insert_value()" value = "Insert" style="height: 8vh; width: 100%; font-size: 3vh;margin-top:4.5vh; border:1px solid white; color:white;">Inscribirme</button>
                 <div id="showData">
@@ -554,7 +563,7 @@
                 <h1 style="font-size: 3vh;">Gracias por inscribirte. <br> Esperamos verte en el torneo. <br> Mucha suerte.</h1>
                 <h3 style="color:red; font-size: 2.5vh;">Recorda llegar 20 minutos antes <br> del inicio de tu categoria.</h3>
                 </div>
-                <div class="row " style="margin-top: 2vh;">
+                <div class="row align-items-center" style="margin-top: 2vh;">
       
                 <div class="col-xl-4" style="margin-top:2vh; margin-bottom: 2vh;">
                 <a href="inicio.html"><button class="btn" style="height: 8vh; width: 30vh; font-size: 3vh; margin-top:2vh; border:1px solid white; color:white;">Volver</button></a>
