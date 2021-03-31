@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="keywords" content=""/>
+    <title>InscripcionTMT</title>
+    <link rel="stylesheet" href="cssAlvear.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+      /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+--header-height: 3rem;
+
+/*===== Colors =====*/
+--first-color: #0F4EAE;
+--first-color-light: #C4C7F5;
+--dark-color: white;
+--white-color: #FBFBFB;
+
+/*===== Font and typography =====*/
+--body-font: 'Open Sans', sans-serif;
+--nav-name-font-size: 1.5rem;
+--normal-font-size: .938rem;
+
+/*===== z index =====*/
+--z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+:root {
+--nav-name-font-size: 1rem;
+--normal-font-size: 1rem;
+}
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+box-sizing: border-box;
+}
+
+body {
+margin: var(--header-height) 0 0 0;
+font-family: var(--body-font);
+font-size: var(--normal-font-size);
+font-weight: 600;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a {
+text-decoration: none;
+}
+
+.bd-grid {
+max-width: 1024px;
+display: grid;
+grid-template-columns: 100%;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
+}
+
+/*===== HEADER =====*/
+.encabezado {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: var(--header-height);
+padding: 0 1rem;
+background-color: #052f6e;
+z-index: var(--z-fixed);
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado__logo {
+color: var(--dark-color);
+}
+
+.encabezado__toggle {
+font-size: 1.7rem;
+cursor: pointer;
+}
+
+/*===== NAV =====*/
+@media screen and (max-width: 768px) {
+.nave {
+position: fixed;
+top: 0;
+left: -100%;
+background-color: var(--first-color);
+width: 80%;
+height: 100%;
+padding: 2rem 0;
+z-index: var(--z-fixed);
+transition: .5s;
+overflow-y: auto;
+}
+}
+
+.nave__content {
+display: flex;
+flex-direction: column;
+}
+
+.nave__perfil {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.nave__img {
+display: flex;
+justify-content: center;
+width: 60px;
+height: 60px;
+border-radius: 0%;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.nave__img img {
+width: 60px;
+}
+
+.nave__name {
+display: block;
+font-size: var(--nav-name-font-size);
+color: var(--white-color);
+}
+
+.nave__item {
+margin-bottom: 2rem;
+}
+
+.nave__link {
+color: var(--first-color-light);
+}
+
+.nave__link:hover {
+color: var(--white-color);
+}
+
+/*Show menu*/
+.show {
+left: 0;
+}
+
+/*Active link*/
+.active {
+color: var(--white-color);
+}
+
+.dropdowne__link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.dropdowne__icon {
+font-size: 1.3rem;
+transition: .5s;
+}
+
+.dropdowne__menu {
+margin: 1rem 0 0 1rem;
+display: none;
+}
+
+.dropdowne__item {
+margin: 1rem 0;
+}
+
+.dropdowne:hover > .dropdowne__menu {
+display: block;
+}
+
+.dropdowne:hover .dropdowne__icon {
+transform: rotate(180deg);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 576px) {
+.nave {
+width: 288px;
+}
+}
+
+@media screen and (min-width: 768px) {
+body {
+margin: 0;
+}
+.encabezado {
+height: calc(var(--header-height) + 1rem);
+}
+.encabezado__logo, .encabezado__toggle {
+display: none;
+}
+.nave {
+width: 100%;
+}
+.nave__content {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+.nave__perfil {
+flex-direction: row;
+text-align: initial;
+margin-bottom: 0;
+}
+.nave__img {
+width: 40px;
+height: 40px;
+margin-right: .5rem;
+margin-bottom: 0;
+}
+.nave__img img {
+width: 46px;
+}
+.nave__name {
+color: var(--dark-color);
+}
+.nave__list {
+display: flex;
+align-items: center;
+}
+.nave__item {
+margin: 0 1.5rem;
+padding: 1.4rem 0;
+}
+.nave__link {
+color: var(--dark-color);
+}
+.nave__link:hover {
+color: var(--first-color-light);
+}
+/*Active link new color*/
+.active {
+color: var(--first-color-light);
+}
+.dropdowne {
+position: relative;
+}
+.dropdowne__menu {
+position: fixed;
+margin: 0;
+top: calc(var(--header-height) + 1rem);
+padding: .5rem 1.5rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: .5rem;
+background-color: #052f6e;
+}
+.dropdowne__item {
+margin: .5rem 0;
+}
+}
+
+@media screen and (min-width: 1024px) {
+.bd-grid {
+margin-left: auto;
+margin-right: auto;
+}
+}
+p{
+font-size: 2.7vh;
+}
+.container-fluid img{
+width: 4.5vh;
+height: 4vh;
+}
+.nave__item img{
+width: 4.5vh;
+height: 4vh;
+}
+.footer{
+background-color: #052f6e;
+padding: 20px 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 5vh;
+}
+@media(max-width: 991px){
+.footer{
+padding: 20px 50px;
+flex-direction: column-reverse;
+text-align: center;
+}
+}
+.text{
+color:white;
+font-size: 1.8vh;
+}
+</style>
+
+  </head>
+
+  <body id="cuerpo">
+    <header class="encabezado">
+      <a href="#" class="encabezado__logo">Alvear Club</a>
+
+      <i class='bx bx-menu encabezado__toggle' id="encabezado-toggle" style="color:white;"></i>
+
+      <nav class="nave" id="nave-menu">
+          <div class="nave__content bd-grid">
+              <a href="inicio.html" class="nave__perfil">
+                  
+                  
+                  <div>
+                      <span class="nave__name" style="margin-left: 0.1vh;">Alvear</span>
+                      <span class="nave__name">Club</span>
+                  </div>
+              </a>
+
+              <div class="nave__menu">
+                  <ul class="nave__list">
+                      <li class="nave__item"><a href="formulario.html" class="nave__link active">Inscribirme</a></li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Listado de Inscriptos <i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu">
+                              <li class="dropdowne__item"><a href="listado4ta.html" class="nave__link">6ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado3ra.html" class="nave__link">5ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado2da.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Sembrado de Zonas<i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu">
+                              <li class="dropdowne__item"><a href="sembrado4ta.html" class="nave__link">6ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado3ra.html" class="nave__link">5ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado2da.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+
+                      <li class="nave__item"><a href="ConsultasAcercaDelTorneo.html" class="nave__link">Consultas</a></li>
+                      <li class="nave__item"><a href="https://www.bit.ly/SoftwareSAIT" class="nave__link">Acerca del Sistema</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+
+    <div class="container justify-content-md-center aling-items-center " style=" margin-bottom:30px; margin-top: 9vh;">
+      <div class="row justify-content-md-center" style= "margin-top:3vh;">
+        <div class="col md-4 text-center">
+            <img src="Logo.png" id="imagen" style="width:25vh">
+        </div>
+      </div>
+      <div class="row justify-content-md-center" style= "margin:3vh;">
+          <div class="col md-4 text-center">
+            <a href="sembrado4ta.html">
+              <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh;
+              font-size: 3.1vh;">Zonas 6ta Categoría</button>
+            </a>
+            </div>
+      </div>
+      <div class="row justify-content-md-center" style= "margin:3vh;">
+          <div class="col md-4 text-center">
+            <a href="sembrado3ra.html">
+              <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh;
+              font-size: 3.1vh;">Zonas 5ta Categoría</button>
+            </a>
+            </div>
+      </div>
+      <div class="row justify-content-md-center" style= "margin:3vh;">
+          <div class="col md-4 text-center">
+            <a href="sembrado2da.html">
+              <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh;
+              font-size: 3.1vh;">Zonas 4ta Categoría</button>
+            </a>
+            </div>
+      </div>
+      <div class="row justify-content-md-center" style= "margin:3vh;">
+          <div class="col md-4 text-center">
+            <a href="sembrado1ra.html">
+              <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh;
+              font-size: 3.1vh;">Zonas 1ra Categoría</button>
+            </a>
+            </div>
+      </div>
+    </div>
+    <section class="footer" style="margin-right: 3vh;">
+      <p class="text"><a style="color: white;"href="https://wa.link/e0ayey">Diseño y Desarrollo por Diego Simón</a></p>
+      <p class="text" style="font-size: 1.5vh;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+    </section>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
