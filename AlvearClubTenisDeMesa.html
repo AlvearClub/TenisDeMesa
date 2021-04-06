@@ -12,7 +12,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
 
-
+    <style>
+      
+      .footer{
+        background-color: #052f6e;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5vh;
+        }
+        @media(max-width: 991px){
+        .footer{
+        padding: 20px 50px;
+        flex-direction: column-reverse;
+        text-align: center;
+        }
+        }
+        .text{
+        color:white;
+        font-size: 1.8vh;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
@@ -34,23 +55,23 @@
             <img src="Logo.png" id="imagen" style="width:25vh;">
         </div>
     </div>
-      <div class="row justify-content-md-center" style= "margin:3vh;">
-        <div class="col md-4 text-center">
-            <a href="https://www.youtube.com/channel/UCEfblicZdJ5tLZT0IRfLNmQ">
-            <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh; width: 45vh;
-              font-size: 3.1vh;">Canal de YouTube</button>
-            </a>
-          </div>
-    </div>
-      
     <div class="row justify-content-md-center" style= "margin:3vh;">
-        <div class="col md-4 text-center">
-          <a href="bit.ly/InscripcionAlvear">
-            <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 11.5vh; width: 45vh;
-              font-size: 3.1vh;">44° Torneo TMT <br> Alvear Nittaku</button>
+      <div class="col md-4 text-center">
+          <a href="https://www.youtube.com/channel/UCEfblicZdJ5tLZT0IRfLNmQ">
+          <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 7.5vh; width: 45vh;
+            font-size: 3.1vh;">Canal de YouTube</button>
           </a>
-          </div>
-    </div>
+        </div>
+  </div>
+    
+  <div class="row justify-content-md-center" style= "margin:3vh;">
+      <div class="col md-4 text-center">
+        <a href="inicio.html">
+          <button type="button" id ="boton" class="btn btn-outline-light btn-lg" style= "height: 11.5vh; width: 45vh;
+            font-size: 3.1vh;">44° Torneo TMT <br> "Alvear Nittaku"</button>
+        </a>
+        </div>
+  </div>
     <div class="row justify-content-md-center" style= "margin:3vh;">
         <div class="col md-4 text-center">
           <a href="https://api.whatsapp.com/send?phone=541126457946">
@@ -86,9 +107,11 @@
           </div>
     </div>
 
-    <div class="text-center">
-    <p style="font-size:1.5vh; margin-top:6vh; margin-bottom:3vh;padding-right:3.6vh;color: white">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+    <section class="footer" style="margin-right: 3vh;">
+      <p class="text"><a style="color: white;"href="https://wa.link/e0ayey">Diseño y Desarrollo por Diego Simón</a></p>
+      <p class="text" style="font-size: 1.5vh;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+    </section>
     </div>
-    </div>
+
   </body>
 </html>
