@@ -1,0 +1,86 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --header-height: 3rem;
+
+  /*===== Colors =====*/
+  --first-color: #16baea;
+  --second-color: #010b8e;
+  --thirt-color: #010b76;
+  --fourth-color: #050939;
+
+  --first-color-light: #C4C7F5;
+  --white-color: #FBFBFB;
+
+  /*===== Font and typography =====*/
+  --body-font: 'Open Sans', sans-serif;
+  --nav-name-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+#cuerpo{
+background: var(--white-color);
+}
+#eslogan{
+  font-family: 'Bodoni Moda', serif;
+  font-size: 250%;
+}
+#proximamente{
+  font-family: 'Bodoni Moda', serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 200%;
+}
+.list-group-item{
+  color: var(--white-color);
+}
+h1{
+  text-align: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  color:var(--thirt-color);
+}
+label{
+  font-size: 3.3vh;
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+}
+.form-check-input{
+  height: 3.3vh;
+  width: 3.3vh;
+}
+input{
+  width:5vh;
+  height: 4vh;
+}
+.form-group{
+  margin-bottom: 2vh;
+}
+p{
+  font-size: 3vh;
+  margin-left: 3.5vh;
+  margin-bottom: 1.5vh;
+}
+.errorListado{
+  color:red;
+  font-size: 2.5vh;
+}
+ /*===== HEADER =====*/
+ .encabezado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 1rem;
+  background-color: var(--white-color);
+  z-index: var(--z-fixed);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
