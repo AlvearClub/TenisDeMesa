@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <style>
+      table, th, td
+      {
+          margin:2vh 0;
+          color: var(--thirt-color);
+         
+          font:1.5vh Verdana;
+      }
+      .versus{
+        color:red;
+      }
+      td{
+        text-align: center;
+        padding:0.5vh 1vh;
+      }
+      th {
+          font-weight:bold;
+          font-family: 'Poppins';
+      }
+      thead{
+        text-align: center;
+      }
+      bdi{
+        font-size: 2.5vh;
+        font-weight:bold;
+        font-family: inherit;
+      }
+      
+      h5{
+        font-size: 20px;
+      }
+  #loader {
+  border: 16px solid white;
+  border-radius: 50%;
+  border-top: 16px solid #052f6e;
+  border-bottom: 16px solid #052f6e;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  visibility:hidden;
+  }
+  
+  @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }
+  
+  </style>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="keywords" content=""/>
+    <title>Consultas</title>
+    <link rel="stylesheet" href="cssAlvear.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+ 
+  <style>
+    /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+.btn{
+border:2.5px solid var(--thirt-color);
+border-radius: 20px;
+background-color: var(--thirt-color);
+color: var(--white-color);
+box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.4);
+}
+.icontxt{
+color: var(--thirt-color);
+}
+#encabezado-toggle{
+color: var(--thirt-color);
+}
+
+@media screen and (min-width: 768px) {
+:root {
+--nav-name-font-size: 1rem;
+--normal-font-size: 1rem;
+}
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+box-sizing: border-box;
+}
+
+body {
+margin: var(--header-height) 0 0 0;
+font-family: var(--body-font);
+font-size: var(--normal-font-size);
+font-weight: 600;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a {
+text-decoration: none;
+}
+
+.bd-grid {
+max-width: 1024px;
+display: grid;
+grid-template-columns: 100%;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
+}
+
+
+
+.encabezado__logo {
+color: var(--thirt-color);
+}
+
+.encabezado__toggle {
+font-size: 1.7rem;
+cursor: pointer;
+}
+
+/*===== NAV =====*/
+@media screen and (max-width: 768px) {
+.nave {
+position: fixed;
+top: 0;
+left: -100%;
+background-color: var(--thirt-color);
+width: 80%;
+height: 100%;
+padding: 2rem 0;
+z-index: var(--z-fixed);
+transition: .5s;
+overflow-y: auto;
+}
+}
+
+.nave__content {
+display: flex;
+flex-direction: column;
+}
+
+.nave__perfil {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.nave__img {
+display: flex;
+justify-content: center;
+width: 60px;
+height: 60px;
+border-radius: 0%;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.nave__img img {
+width: 60px;
+}
+
+.nave__name {
+display: block;
+font-size: var(--nav-name-font-size);
+color: var(--white-color);
+}
+
+.nave__item {
+margin-bottom: 2rem;
+}
+
+.nave__link {
+color: var(--white-color);
+}
+
+.nave__link:hover {
+color: var(--first-color);
+}
+
+/*Show menu*/
+.show {
+left: 0;
+}
+
+/*Active link*/
+.active {
+color: var(--white-color);
+}
+
+.dropdowne__link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.dropdowne__icon {
+font-size: 1.3rem;
+transition: .5s;
+}
+
+.dropdowne__menu {
+margin: 1rem 0 0 1rem;
+display: none;
+}
+
+.dropdowne__item {
+margin: 1rem 0;
+}
+
+.dropdowne:hover > .dropdowne__menu {
+display: block;
+}
+
+.dropdowne:hover .dropdowne__icon {
+transform: rotate(180deg);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 576px) {
+.nave {
+width: 288px;
+}
+}
+
+@media screen and (min-width: 768px) {
+body {
+margin: 0;
+}
+.encabezado {
+height: calc(var(--header-height) + 1rem);
+}
+.encabezado__logo, .encabezado__toggle {
+display: none;
+}
+.nave {
+width: 100%;
+}
+.nave__content {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+.nave__perfil {
+flex-direction: row;
+text-align: initial;
+margin-bottom: 0;
+}
+.nave__img {
+width: 40px;
+height: 40px;
+margin-right: .5rem;
+margin-bottom: 0;
+}
+.nave__img img {
+width: 46px;
+}
+.nave__name {
+color: var(--thirt-color);
+}
+.nave__list {
+display: flex;
+align-items: center;
+}
+.nave__item {
+margin: 0 1.5rem;
+padding: 1.4rem 0;
+}
+.nave__link {
+color: var(--thirt-color);
+}
+.nave__link:hover {
+color: var(--first-color);
+}
+/*Active link new color*/
+.active {
+color: var(--first-color);
+}
+.dropdowne {
+position: relative;
+}
+.dropdowne__menu {
+position: fixed;
+margin: 0;
+top: calc(var(--header-height) + 1rem);
+padding: .5rem 1.5rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: .5rem;
+background-color: var(--white-color);
+}
+.dropdowne__item {
+margin: .5rem 0;
+}
+}
+
+@media screen and (min-width: 1024px) {
+.bd-grid {
+margin-left: auto;
+margin-right: auto;
+}
+}
+p{
+font-size: 2.7vh;
+}
+.container-fluid img{
+width: 4.5vh;
+height: 4vh;
+}
+.nave__item img{
+width: 4.5vh;
+height: 4vh;
+}
+.footer{
+background-color: var(--white-color);
+padding: 20px 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 5vh;
+}
+@media(max-width: 991px){
+.footer{
+padding: 20px 50px;
+flex-direction: column-reverse;
+text-align: center;
+}
+}
+.text{
+color: var(--first-color);
+font-size: 1.8vh;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<script>
+     var script_url = "https://script.google.com/macros/s/AKfycbxQqOoLp9V7c1sN_KrnUSHmPjlQynJhjF6h-EEhYClRSXE4tAE/exec";
+
+// print the returned data
+function ctrlq(e) {
+
+
+$("#re").html(e.result);
+$("#re").css("visibility","visible");
+read_value();
+
+}
+
+
+
+
+function read_value() {
+
+$("#re").css("visibility","hidden");
+
+document.getElementById("loader").style.visibility = "visible";
+
+var url = script_url+"?action=read";
+
+$.getJSON(url, function (json) {
+
+// Set the variables from the results array
+
+   // CREATE DYNAMIC TABLE.
+   var table = document.createElement("table");
+
+    var header = table.createTHead();
+		var row = header.insertRow(0);
+    var CantEspacios=0; //Cantidad de veces que se va a dejar espacios para la impresion vertical
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        //var cell1 = row.insertCell(0);
+        //cell1.innerHTML = "<b>Final</b>";
+        tr = table.insertRow(-1);
+          //Titulos de las llaves
+          if(json.records[0].DIECISEIS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>16avos de Final</bdi>");
+            CantEspacios++;
+          }
+          if(json.records[0].OCTAVOS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>8vos de Final</bdi>");
+            CantEspacios++;
+          }
+          if(json.records[0].CUARTOS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>4tos de Final</bdi>");
+            CantEspacios++;
+          }
+          if(json.records[0].SEMIS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>Semifinal</bdi>");
+            CantEspacios++;
+          }
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          if(json.records[0].SEMIS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>Semifinal</bdi>");
+          }
+          if(json.records[0].CUARTOS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>4tos de Final</bdi>");
+          }
+          if(json.records[0].OCTAVOS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>8vos de Final</bdi>");
+          }
+          if(json.records[0].DIECISEIS.includes('active')){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("<bdi>16avos de Final</bdi>");
+          }
+          
+
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          //Impresion de las llaves horizontal
+          var j = json.records.length;
+          for (var i = 2; i < (json.records.length/2)+1; i++) {
+            
+            tr = table.insertRow(-1);
+            var tabCell = tr.insertCell(-1);
+            if(json.records[0].DIECISEIS.includes('active')){
+              tabCell.innerHTML = json.records[i-1].DIECISEIS;
+              tabCell = tr.insertCell(-1);
+            }
+            if(json.records[0].OCTAVOS.includes('active')){
+            tabCell.innerHTML = json.records[i-1].OCTAVOS;
+            tabCell = tr.insertCell(-1);
+            }
+            if(json.records[0].CUARTOS.includes('active')){
+            tabCell.innerHTML = json.records[i-1].CUARTOS;
+            tabCell = tr.insertCell(-1);
+            }
+            if(json.records[0].SEMIS.includes('active')){
+            tabCell.innerHTML = json.records[i-1].SEMIS;
+            tabCell = tr.insertCell(-1);
+            }
+            tabCell.innerHTML = ("&nbsp");
+            j= j-1;
+            if(json.records[0].SEMIS.includes('active')){
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[j-1].SEMIS;
+            }
+            if(json.records[0].CUARTOS.includes('active')){
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[j-1].CUARTOS;
+            }
+            if(json.records[0].OCTAVOS.includes('active')){
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[j-1].OCTAVOS;
+            }
+            if(json.records[0].DIECISEIS.includes('active')){
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[j-1].DIECISEIS;
+            }
+            
+
+            
+            
+          }
+          
+
+      
+        
+        
+        //Impresion vertical de las llaves
+
+        if(json.records[0].DIECISEIS.includes('active')){
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tr = table.insertRow(-1);
+          //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi>16avos de Final</bdi>");
+
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+
+          for (var i = 2; i < json.records.length; i++) {
+            
+            tr = table.insertRow(-1);
+            var tabCell = tr.insertCell(-1);
+            //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+            tabCell.innerHTML = json.records[i-1].DIECISEIS;
+            if(i%4==0){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<b>------------------</b>";
+            }
+            if(i==3||i==7||i==11||i==15||i==19||i==23||i==27||i==31){
+              tr = table.insertRow(-1);
+             //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = '<b class="versus">VS</b>';
+            }
+            
+          }
+
+        }
+        if(json.records[0].OCTAVOS.includes('active')){
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tr = table.insertRow(-1);
+          //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi>8avos de Final</bdi>");
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          for (var i = 2; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+            //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i-1].OCTAVOS;
+            if(i%8==0){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<b>------------------</b>";
+            }
+            if(i==4||i==12||i==20||i==28){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = '<b class="versus">VS</b>';
+            }
+          }
+
+        }
+        if(json.records[0].CUARTOS.includes('active')){
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tr = table.insertRow(-1);
+          //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi>4tos de Final</bdi>");
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          for (var i = 2; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+            //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i-1].CUARTOS;
+            if(i%16==0){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<b>------------------</b>";
+            }
+            if(i==8||i==24){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = '<b class="versus">VS</b>';
+            }
+          }
+
+        }
+        if(json.records[0].SEMIS.includes('active')){
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tr = table.insertRow(-1);
+          //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi>Semifinal</bdi>");
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          for (var i = 2; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+            //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i-1].SEMIS;
+            if(i==16){
+              tr = table.insertRow(-1);
+              //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = '<b class="versus">VS</b>';
+            }
+          }
+
+        }
+        if(json.records[0].FINAL.includes('active')){
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          tr = table.insertRow(-1);
+          //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("<bdi>Final</bdi>");
+          tr = table.insertRow(-1);
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML= ("&nbsp");
+          for (var i = 2; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+            //Cantidad de saltos segun la llave
+          for(var k=0; k < CantEspacios; k++){
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML= ("&nbsp");
+          }
+          //Final de los dos saltos
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i-1].FINAL;
+
+          }
+
+        }
+        
+
+
+
+   // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+   var divContainer = document.getElementById("showData");
+   divContainer.innerHTML = "";
+   divContainer.appendChild(table);
+document.getElementById("loader").style.visibility = "hidden";
+$("#re").css("visibility","visible");
+
+});
+}
+</script>
+
+
+  </head>
+
+  <body id="cuerpo">
+
+    <header class="encabezado">
+      <a href="inicio.html" class="encabezado__logo">Alvear Club</a>
+
+      <i class='bx bx-menu encabezado__toggle' id="encabezado-toggle"></i>
+
+      <nav class="nave" id="nave-menu">
+          <div class="nave__content bd-grid">
+              <a href="inicio.html" class="nave__perfil">
+                 
+                  
+                  <div>
+                      <span class="nave__name" style="margin-left: 0.1vh;">Alvear</span>
+                      <span class="nave__name">Club</span>
+                  </div>
+              </a>
+
+              <div class="nave__menu">
+                  <ul class="nave__list">
+                      <li class="nave__item"><a href="inscribirme.html" class="nave__link">Inscribirme</a></li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Listado de Inscriptos <i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu" style="padding:0 2vh;">
+                              <li class="dropdowne__item"><a href="listado4ta.html" class="nave__link">5ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado3ra.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado2da.html" class="nave__link">2da Categoría</a></li>
+                              <li class="dropdowne__item"><a href="listado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+                      <li class="nave__item dropdowne">
+                          <a href="#" class="nave__link dropdowne__link">Sembrado de Zonas<i class='bx bx-chevron-down dropdowne__icon'></i></a>
+                              
+
+                          <ul class="dropdowne__menu" style="padding:0 2vh;">
+                              <li class="dropdowne__item"><a href="sembrado4ta.html" class="nave__link">5ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado3ra.html" class="nave__link">4ta Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado2da.html" class="nave__link">2da Categoría</a></li>
+                              <li class="dropdowne__item"><a href="sembrado1ra.html" class="nave__link">1ra Categoría</a></li>
+                          </ul>
+                      </li>
+
+
+                      <li class="nave__item"><a href="Llave.html" class="nave__link active">Consultas</a></li>
+                      <li class="nave__item"><a href="https://www.bit.ly/SoftwareSAIT" class="nave__link">Acerca del Sistema</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+    <div class="container justify-content-md-center aling-items-center " style=" margin-top: 9vh;">
+      <div class="row justify-content-md-center" style= "margin-top:3vh;">
+        <div class="col md-4 text-center">
+            <img src="img/Logo.png" id="imagen" style="width:25vh">
+        </div>
+      </div>
+
+    </div>
+
+    <div align="center">
+      <h1 style="font-family: 'Poppins', sans-serif; font-size:4vh;">
+        Consultas </h1>
+    </div>
+    <div align="center">
+      
+      <div class="container-fluid text-center" style="margin-top: 3vh; margin-bottom: -5vh;">
+        <h5 style="color:#010b76;">Auspician:</h5>
+        <div class="row justify-content-center">
+          <div class="col-xl-2 text-center">
+            <a href="https://www.instagram.com/romaphotolabph/">
+              <img class="imgAus" src="img/logo-roma-photolab-q1ThirtColor.png" style="height: 15vh; width: 37vh; margin-left:-7vh; margin-bottom: -4vh;" alt="">
+            </a>
+          </div>
+          <div class="col-xl-2 text-center">
+            <a href="https://www.instagram.com/fego.arg/">
+              <img class="imgAus text-center" src="img/LOGO-FEGO2.png" style="height: 13vh; width: 25vh; margin-left: 2vh; margin-bottom: 5vh;" alt="">
+            </a>
+          </div>
+         </div>
+      </div>
+
+     
+
+
+
+    <section class="footer" style="margin-right: 2vh;">
+      <p class="text"><a style="color: #16baea; text-decoration:none;"href="https://wa.link/4o7d77">Diseño y Desarrollo por Diego Simón</a></p>
+      <p class="text" style="font-size: 1.5vh;  margin-bottom: 1vh;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+    </section>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#b1").on('click', function() {
+            $("#b1").hide();
+            $("#final").show();
+            return false;
+        });
+  
+    });
+    </script>
+  </body>
+  
+
+</html>

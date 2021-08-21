@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--===== CSS =====-->
+        <link rel="stylesheet" href="formulario.css">
+        <link rel="stylesheet" href="cssAlvear.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+        <title>InscripcionTMT</title>
+
+        <script type="text/javascript">
+            var script_url = "https://script.google.com/macros/s/AKfycbxQqOoLp9V7c1sN_KrnUSHmPjlQynJhjF6h-EEhYClRSXE4tAE/exec";
+            var aprobado="";
+            var str="";
+            $(document).ready(function() {
+          
+            $('[name="checks[]"]').click(function() {
+          
+              var arr = $('[name="checks[]"]:checked').map(function(){
+                return this.value;
+              }).get();
+          
+              str = arr.join(', ');
+          
+              $('#arr').text(JSON.stringify(arr));
+          
+              $('#str').text(str);
+          
+              });
+          
+            });
+          
+          
+          
+            // Make an AJAX call to Google Script
+            function insert_value() {
+          
+              $("#re").css("visibility", "hidden");
+              document.getElementById("loader").style.visibility = "visible";
+              $('#mySpinner').addClass('spinner');
+              //creamos variables con los valores que el usuario ingresa en el formulario
+              //Se corresponden con los id de los input
+              var row1 = $("#code").val(); // Codigo TMT
+              var row2 = $("#carrera").val(); //Nombre y Apellido 
+              var row3 = $("#e1").val(); // Contacto 
+              var row4 = str; // Categorias a participar
+              var row5 = " " // Metodo de pago
+          
+          
+              var perfil = "\"https://www.tenisdemesaparatodos.com/jugadores_ficha.asp?codigo=";
+              var link = perfil.concat("",row1) ;
+              var path = "\"/html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/table/tbody/tr/td[1]/table/tbody/tr[1]/td/table/tbody/tr/td[2]\"";
+              var pathTeam= "\"/html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[3]/td/table/tbody/tr/td[1]/table/tbody/tr[7]/td/table/tbody/tr[1]/td[2]/a/strong\"";
+              var importxml = "=IMPORTXML( ";
+              var concat1 = importxml.concat("",link);
+              var concat2 = concat1.concat(" \", ", path);
+              var concat3 = concat2.concat(")","");
+              var row6 = concat3;
+              //var row6 = 0;//$("#e4").val();
+              concat2 = concat1.concat(" \", ", pathTeam);
+              concat3 = concat2.concat(")","");
+              var row7 = concat3;//$("#aula").val();
+          
+              var validacionNumeros = /^[0-9]+$/;
+              var validacionPalabras =  /^[a-zA-Z]+$/;
+              var validacionCorreoElectronico = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]{2,4}$/;
+              var vaclidacionVacio = "";
+          
+              if(row1.length == 0){ 
+                alert("Campo Codigo TMT obligatorio");
+                window.location = "formulario.html";
+              }
+              else{
+                  if(row2.length == 0){
+                    alert("Campo Nombre obligatorio");
+                    window.location = "formulario.html";
+                  }
+                  else{
+                      if(row3.length == 0){
+                        alert("Campo Contacto obligatorio");
+                        window.location = "formulario.html";
+                      }
+                      else{
+                        
+                        if(  (row4.includes('1ra') == false) && (row4.includes('2da') == false) && (row4.includes('3ra') == false) && (row4.includes('4ta') == false) ){
+                          alert("Campo Categoria Obligatorio");  
+                          window.location = "formulario.html";
+                        } 
+                        
+                            
+                        else{
+                      
+                              var url = script_url + "?callback=ctrlq&code=" + row1 + "&carrera=" + row2 + "&e1="+ row3 + "&e2=" + row4 +"&e3=" + row5 + "&e4="+ row6 + "&aula="+ row7 +"&action=insert";
+                                 console.log(url);
+           
+                                 var request = jQuery.ajax({
+          
+                                 crossDomain: true,
+                                 url: url,
+                                 method: "GET",
+                                 dataType: "jsonp"
+                                });
+                                        
+                                 console.log(request);
+                        } 
+                      }
+                  }
+              }
+            }
+          
+          
+          
+            
+          
+        </script>
+        <style>
+          /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+.btn{
+border:2.5px solid var(--thirt-color);
+border-radius: 20px;
+background-color: var(--thirt-color);
+color: var(--white-color);
+box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.4);
+}
+.icontxt{
+color: var(--thirt-color);
+}
+#encabezado-toggle{
+color: var(--thirt-color);
+}
+
+@media screen and (min-width: 768px) {
+:root {
+  --nav-name-font-size: 1rem;
+  --normal-font-size: 1rem;
+}
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+box-sizing: border-box;
+}
+
+body {
+margin: var(--header-height) 0 0 0;
+font-family: var(--body-font);
+font-size: var(--normal-font-size);
+font-weight: 600;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a {
+text-decoration: none;
+}
+
+.bd-grid {
+max-width: 1024px;
+display: grid;
+grid-template-columns: 100%;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
+}
+
+
+
+.encabezado__logo {
+color: var(--thirt-color);
+}
+
+.encabezado__toggle {
+font-size: 1.7rem;
+cursor: pointer;
+}
+
+/*===== NAV =====*/
+@media screen and (max-width: 768px) {
+.nave {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background-color: var(--thirt-color);
+  width: 80%;
+  height: 100%;
+  padding: 2rem 0;
+  z-index: var(--z-fixed);
+  transition: .5s;
+  overflow-y: auto;
+}
+}
+
+.nave__content {
+display: flex;
+flex-direction: column;
+}
+
+.nave__perfil {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.nave__img {
+display: flex;
+justify-content: center;
+width: 60px;
+height: 60px;
+border-radius: 0%;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.nave__img img {
+width: 60px;
+}
+
+.nave__name {
+display: block;
+font-size: var(--nav-name-font-size);
+color: var(--white-color);
+}
+
+.nave__item {
+margin-bottom: 2rem;
+}
+
+.nave__link {
+color: var(--white-color);
+}
+
+.nave__link:hover {
+color: var(--first-color);
+}
+
+/*Show menu*/
+.show {
+left: 0;
+}
+
+/*Active link*/
+.active {
+color: var(--white-color);
+}
+
+.dropdowne__link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.dropdowne__icon {
+font-size: 1.3rem;
+transition: .5s;
+}
+
+.dropdowne__menu {
+margin: 1rem 0 0 1rem;
+display: none;
+}
+
+.dropdowne__item {
+margin: 1rem 0;
+}
+
+.dropdowne:hover > .dropdowne__menu {
+display: block;
+}
+
+.dropdowne:hover .dropdowne__icon {
+transform: rotate(180deg);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 576px) {
+.nave {
+  width: 288px;
+}
+}
+
+@media screen and (min-width: 768px) {
+body {
+  margin: 0;
+}
+.encabezado {
+  height: calc(var(--header-height) + 1rem);
+}
+.encabezado__logo, .encabezado__toggle {
+  display: none;
+}
+.nave {
+  width: 100%;
+}
+.nave__content {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nave__perfil {
+  flex-direction: row;
+  text-align: initial;
+  margin-bottom: 0;
+}
+.nave__img {
+  width: 40px;
+  height: 40px;
+  margin-right: .5rem;
+  margin-bottom: 0;
+}
+.nave__img img {
+  width: 46px;
+}
+.nave__name {
+  color: var(--thirt-color);
+}
+.nave__list {
+  display: flex;
+  align-items: center;
+}
+.nave__item {
+  margin: 0 1.5rem;
+  padding: 1.4rem 0;
+}
+.nave__link {
+  color: var(--thirt-color);
+}
+.nave__link:hover {
+  color: var(--first-color);
+}
+/*Active link new color*/
+.active {
+  color: var(--first-color);
+}
+.dropdowne {
+  position: relative;
+}
+.dropdowne__menu {
+  position: fixed;
+  margin: 0;
+  top: calc(var(--header-height) + 1rem);
+  padding: .5rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
+  background-color: var(--white-color);
+}
+.dropdowne__item {
+  margin: .5rem 0;
+}
+}
+
+@media screen and (min-width: 1024px) {
+.bd-grid {
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+p{
+font-size: 2.7vh;
+}
+.container-fluid img{
+width: 4.5vh;
+height: 4vh;
+}
+.nave__item img{
+width: 4.5vh;
+height: 4vh;
+}
+.footer{
+background-color: var(--white-color);
+padding: 20px 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 5vh;
+}
+@media(max-width: 991px){
+.footer{
+  padding: 20px 50px;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+}
+.text{
+color: var(--first-color);
+font-size: 1.8vh;
+}
+</style>
+            
+
+    </head>
+    <body id="cuerpo">
+        
+        
+        
+          <div class="container" style="margin-top: 9vh;">
+          <div class="row justify-content-md-center">
+
+              <div class="col md-4 text-center">
+
+                  <img src="img/Logo.png" id="imagen" style="width:25vh">
+
+              </div>
+              
+          </div>
+          </div>
+        
+          
+        <div style="margin-top: 6vh; width: 40vh; margin: 0 auto;" >
+            <form action="" id="hoy">
+                <h1 style="font-family: 'Poppins', sans-serif; font-size:3.5vh; margin-bottom:2vh;">
+                    Inscripción TMT </h1>
+
+                <div class="form__div">
+                    <input type="text" class="form__input" name="Carrera" id="carrera" placeholder=" " autocomplete="off">
+                    <label for="" class="form__label">Nombre y Apellido</label>
+                </div>
+
+                <div class="form__div">
+                    <input type="number" class="form__input" name="Code" id="code"  placeholder=" " autocomplete="off">
+                    <label for="" class="form__label">Codigo TMT</label>
+                </div>
+                <div class="form__div">
+                    <input type="number" class="form__input" name="E-1" id="e1"  placeholder=" " autocomplete="off"> 
+                    <label for="" class="form__label">Celular (contacto)</label>
+                </div>
+
+              <!-- 
+                <label style="font-size: 2vh; margin-bottom:3vh;">Metodo de pago</label>
+                <select id="e3" style="width:70%; height:5vh; background:#052f6e; color:white; font-size:2vh; margin-bottom: 1vh;" class="form-select" aria-label="Default select example">
+                <option value="Efectivo" style="font-size:1.3vw;">Efectivo</option>
+                <option value="Transferencia bancaria" style="font-size:1.3vw;">Transferencia Bancaria</option>
+                <option value="Mercado pago" style="font-size:1.3vw;">Mercado Pago</option>
+                </select>
+                <p style="font-size: 1.5vh; margin-bottom:5vh; margin-left: 0vh; padding-right: 4vh;">
+                Una vez seleccionado el metodo de pago nos pondremos en contacto con usted para realizar la transaccion del mismo, efectivo se abona el dia del torneo
+                </p>
+              -->
+
+
+                <label style="font-size: 2.5vh; margin-bottom:3.5vh;">Categorias a participar:</label>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="checks[]" value="4ta" id="defaultCheck4" style="width:3vh; height: 3vh; margin-bottom: 1vh;">
+                <p style="font-size:2.5vh;">4ta Categoría - 10:00 hs</p>
+                </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="checks[]" value="3ra" id="defaultCheck3" style="width:3vh; height: 3vh; margin-bottom: 1vh;" >
+                <p style="font-size:2.5vh;">3ra Categoría - 13:00 hs</p>
+                </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="checks[]" value="2da" id="defaultCheck2" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
+                <p style="font-size:2.5vh;"> 2da Categoría - 16:00 hs</p>
+                </div>
+
+                <div class="form-check" style="margin-bottom: 4vh;">
+                  <input class="form-check-input" type="checkbox" name="checks[]" value="1ra" id="defaultCheck1" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
+                  <p style="font-size:2.5vh;"> 1ra Categoría - 19:00 hs</p>
+                </div>
+
+
+                <small>
+                  El pago de la inscripción se realiza el mismo dia del torneo y en efectivo.
+                </small>
+                <div id="loader" style="display:none;"></div>
+                <button type="submit" class="btn" id = "b1" onClick="insert_value()" value = "Insert" style="height: 8vh; width: 100%; font-size: 3vh;margin-top:2.5vh; border:1px solid white; color:white;">Inscribirme</button>
+                <div id="showData">
+                </div>
+                
+            </form>
+        </div>
+    
+
+        <div id="content" class="col-lg-12" align="center">
+            <div id="final" class="col-lg-12" style="display:none">
+      
+              <div class="row text-center">
+                <h1 style="font-size: 3vh;">Inscripcion realizada</h1>
+                </div>
+                <div class="row align-items-center" style="margin-top: 2vh;">
+      
+                <div class="col-xl-4" style="margin-top:2vh; margin-bottom: 2vh;">
+                <a href="formulario.html"><button class="btn" style="height: 8vh; width: 40vh; font-size: 3vh; margin-top:2vh; border:1px solid white; color:white;">Agregar otra inscripcion</button></a>
+                </div>
+                
+              
+                </div>
+      
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+      
+        $(document).ready(function(){
+      
+            $("#b1").on('click', function() {
+                $("#hoy").hide();
+                $("#final").show();
+                return false;
+            });
+      
+        });
+      
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+        var inputs = document.getElementsByClassName('formulario__input');
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].addEventListener('keyup', function(){
+            if(this.value.length>=1) {
+              this.nextElementSibling.classList.add('fijar');
+            } else {
+              this.nextElementSibling.classList.remove('fijar');
+            }
+          });
+        }
+        </script>
+      
+      <section class="footer" style="margin-right: 3vh;">
+        <p class="text"><a style="color: white;"href="https://wa.link/e0ayey">Diseño y Desarrollo por Diego Simón</a></p>
+        <p class="text" style="font-size: 1.5vh;">© Alvear Club Tenis de Mesa 2021 | Todos los derechos reservados.</p>
+      </section>
+
+        <script src="main.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    </body>
+</html>
