@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@font-face {
+  font-family: "Gilroy";
+  src: url("../Fonts/Gilroy-FREE/Gilroy-Light.otf");
+}
+@font-face {
+  font-family: "GilroyEB";
+  src: url("../Fonts/Gilroy-FREE/Gilroy-ExtraBold.otf");
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../Fonts/avenir_ff/AvenirLTStd-Roman.otf");
+}
+
+
+@media only screen and (min-width:768px){
+    .phoneContender{
+        display: none;
+    }
+}
+        .topborder{
+          background-color: #dfe0e2;
+          z-index: -3;
+          width: 100%;
+        }
+        .bottomborder{
+          background-color:#1e212a;
+          z-index: -3;
+          bottom: 0;
+          width: 100%;
+        }
+        .encabeza2{
+          text-align: center;
+          margin-bottom: 6vh;
+        }
+        .encabeza2 p{
+          color: #dfe0e2;
+          font-family: 'Avenir';
+          font-size: 4vh;
+        }
+        .glass{
+          width: 100%;
+          background-color: #1e212a;
+          overflow-x:hidden;
+          border-radius: 0 0 0 0;
+          z-index: 0;
+        }
+        .glass2{
+          width: 100%;
+          bottom: 0;
+          margin: 0 0 -20vh 0;
+          border-radius: 50px 50px 0 0;
+          background-color: #dfe0e2;
+          z-index: -2;
+          overflow-x:hidden;
+          overflow-y: hidden;
+        }
+        .saitContent{
+          text-align: center;
+          width: 100%;
+          padding: 0 10vw 0 10vw;
+        }
+        .saitContent #showData{
+          padding: 0 5vw 0 5vw;
+        }
+        .btn{
+          font-family: 'Gilroy';
+          border-radius: 20px;
+          box-shadow: 2.5px 2.5px rgba(0, 0, 0, 0.329);
+        }
+        .container h5{
+          font-family: 'Gilroy';
+        }
+        .volver{
+          margin: 4vh 0 0 3vh;
+          font-size: 3.5vh;
+          position: fixed;
+          color: #fafafc;
+        }
+        .lyt{
+          width: 100%;
+          text-align: center;
+        }
+        .lyt img{
+          margin-top: 5vh;
+          width: 120px;
+          height: 120px;
+        }
+        @font-face {
+          font-family: "Avenir";
+          src: url("../Fonts/avenir_ff/AvenirLTStd-Roman.otf");
+        }
+        h1{
+          font-family: "Avenir";
+          color: white;
+          font-size: 4.5vh;
+          padding: 0px 10% 0px 10%;
+        }
+
+        .phoneContender nav {
+            position: fixed;
+            z-index: 1;
+          bottom: 0px;
+          margin: 0 0 5vw 5%;
+          justify-content: center;
+          width: 90%;
+          min-height: 12.5vh;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          border-radius: 50px;
+          padding: 0 10% 0 0;
+          background: #1e212a;
+          box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.12), 0 22.3px 17.9px rgba(0, 0, 0, 0.08), 0 100px 80px rgba(0, 0, 0, 0.04);
+          overflow: hidden;
+        }
+        .phoneContender nav ul {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .phoneContender nav ul li {
+          list-style: none;
+        
+        }
+        .phoneContender nav ul li a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          font-size: 20px;
+        }
+        .phoneContender nav ul li a i {
+        color:#dfe0e2;
+          width: 100%;
+          height: 100%;
+          opacity: 0.4;
+          transition: opacity 100ms ease;
+          pointer-events: none;
+        }
+        .phoneContender nav ul li a.active i{
+          opacity: 1;
+          
+        }
+        .phoneContender nav .tubelight {
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          transform: translateX(-50%);
+          width: 45px;
+          height: 5px;
+          border-radius: 5px;
+          background: #dfe0e2;
+          transition: left 400ms ease;
+          z-index: 10;
+        }
+        .phoneContender nav .tubelight .light-ray {
+          position: absolute;
+          left: -30%;
+          top: 5px;
+          width: 160%;
+          height: 80px;
+          clip-path: polygon(5% 100%, 25% 0px, 75% 0px, 95% 100%);
+          background: linear-gradient(to bottom, 
+          rgba(100, 100, 100, 0.3) -50%,
+          rgba(255, 255, 255, 0) 90%);
+          pointer-events: none;
+        }
+    
+        @media(max-width: 767px){
+            .footer{
+              flex-direction: column-reverse;
+              text-align: center;
+              margin-bottom: 15vh;
+              font-size: 13px;
+              color:#1e212a;
+              padding: 20px 0px;
+              font-family: "GilroyEB";
+            }
+            .botones{
+              margin-top: 1vh;
+            }
+            .botones .row{
+              margin: auto;
+            }
+            .botones .vuton{
+              border-radius: 30px;
+              border: 2px solid #1e212a;
+              width: 100%;
+              text-align: center;
+              padding: 20px 8vw 10px 8vw;
+              margin-top: 3.5vh;
+            }
+            .botones img{
+              height: 4.5vh;
+            }
+            .botones i{ 
+              font-size: 5vh;
+              color: #1e212a;
+            }
+            .botones .textoBoton{
+              color: #1e212a;
+              margin-top: 1.5vh;
+              font-size: 3vh;
+              font-family: 'Gilroy';
+            }
+        }
+      @media only screen and (max-width:767px){
+        
+        .phoneContender .rowo{
+              flex-direction: column-reverse;
+              margin-top: 50px;
+              margin-bottom: 10px;
+              margin-left: 0;
+              margin-right: 0;
+          }
+          .phoneContender .column-2{
+              flex-basis: 100%;
+              margin-bottom: 50px;
+          }
+          .phoneContender .column-2 .controller{
+              width: 77%;
+          }
+          .phoneContender .color-box{
+              transform: translateX(45%);
+              width: 50vw;
+          }
+          .phoneContender .column-1{
+              flex-basis: 100%;
+          }
+          .phoneContender .column-1 h2{
+              font-size: 35px;
+          }
+          .phoneContender  .column-1 h3{
+              font-size: 15px;
+          }
+          .menucomp{
+              display: none;
+          }
+          .container .row .col .btn{
+              margin-top: 1.5vh;
+          }
+          
+      }
