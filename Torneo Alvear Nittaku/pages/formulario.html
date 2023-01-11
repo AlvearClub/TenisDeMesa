@@ -92,8 +92,7 @@
                         window.location = "formulario.html";
                       }
                       else{
-                        
-                        if(  (row4.includes('1ra') == false) && (row4.includes('2da') == false) && (row4.includes('3ra') == false) && (row4.includes('4ta') == false) ){
+                        if(  (row4.includes('1ra') == false) && (row4.includes('2da') == false) && (row4.includes('7ma') == false) ){
                           alert("Campo Categoria Obligatorio");  
                           window.location = "formulario.html";
                         } 
@@ -125,206 +124,6 @@
           
         </script>
         <style>
-          *{
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  --header-height: 3rem;
-
-  /*===== Colors =====*/
-  --first-color: #16baea;
-  --second-color: #010b8e;
-  --thirt-color: #010b76;
-  --fourth-color: #050939;
-
-  --first-color-light: #C4C7F5;
-  --white-color: #FBFBFB;
-
-  /*===== Font and typography =====*/
-  --body-font: 'Open Sans', sans-serif;
-  --nav-name-font-size: 1.5rem;
-  --normal-font-size: .938rem;
-
-  /*===== z index =====*/
-  --z-fixed: 100;
-}
-#cuerpo{
-background: var(--white-color);
-}
-#eslogan{
-  font-family: 'Bodoni Moda', serif;
-  font-size: 250%;
-}
-#proximamente{
-  font-family: 'Bodoni Moda', serif;
-  font-family: 'Roboto', sans-serif;
-  font-size: 200%;
-}
-.list-group-item{
-  color: var(--white-color);
-}
-h1{
-  text-align: center;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
-  color:var(--thirt-color);
-}
-label{
-  font-size: 3.3vh;
-  margin-bottom: 1vh;
-  margin-left: 1vh;
-}
-.form-check-input{
-  height: 3.3vh;
-  width: 3.3vh;
-}
-input{
-  width:5vh;
-  height: 4vh;
-}
-.form-group{
-  margin-bottom: 2vh;
-}
-p{
-  font-size: 3vh;
-  margin-left: 3.5vh;
-  margin-bottom: 1.5vh;
-}
-.errorListado{
-  color:red;
-  font-size: 2.5vh;
-}
- /*===== HEADER =====*/
- .encabezado {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
-  padding: 0 1rem;
-  background-color: var(--white-color);
-  z-index: var(--z-fixed);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-}
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-/*===== VARIABLES CSS =====*/
-:root{
-  /*===== Colores =====*/
-  --first-color: green;
-  --input-color: #010b76;
-  --border-color: #010b76;
-
-  /*===== Fuente y tipografia =====*/
-  --body-font: 'Roboto', sans-serif;
-  --normal-font-size: 1rem;
-  --small-font-size: .75rem;
-}
-  
-/*===== BASE =====*/
-*,::before,::after{
-  box-sizing: border-box;
-}
-body{
-  margin: 0;
-  padding: 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-
-/*===== FORM =====*/
-.l-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.forme{
-  width: 360px;
-  padding: 4rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(92,99,105,.2);
-}
-.form__title{
-  font-weight: 400;
-  margin-bottom: 3rem;
-}
-.form__div{
-  position: relative;
-  height: 48px;
-  margin-bottom: 1.5rem;
-}
-.form__input{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-size: var(--normal-font-size);
-  border: 1px solid var(--border-color);
-  border-radius: .5rem;
-  outline: none;
-  padding: 1rem;
-  background: none;
-  z-index: 1;
-  color:var(--input-color);
-}
-.form__label{
-  position: absolute;
-  left: 1rem;
-  top: 0.75rem;
-  padding: 0 .25rem;
-  background-color: white;
-  color: var(--input-color);
-  font-size: var(--normal-font-size);
-  transition: .3s;
-}
-.form__button{
-  display: block;
-  margin-left: auto;
-  padding: .75rem 2rem;
-  outline: none;
-  border: none;
-  background-color: var(--first-color);
-  color: #fff;
-  font-size: var(--normal-font-size);
-  border-radius: .5rem;
-  cursor: pointer;
-  transition: .3s;
-}
-.form__button:hover{
-  box-shadow: 0 10px 36px rgba(0,0,0,.15);
-}
-
-/*Input focus move up label*/
-.form__input:focus + .form__label{
-  top: -.5rem;
-  left: .8rem;
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  z-index: 10;
-}
-
-/*Input focus sticky top label*/
-.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
-  top: -.5rem;
-  left: .8rem;
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  z-index: 10;
-}
-
-/*Input focus*/
-.form__input:focus{
-  border: 1.5px solid var(--first-color);
-}
-
           /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
@@ -609,7 +408,18 @@ font-size: 1.8vh;
     </head>
     <body id="cuerpo">
         
- 
+
+          <div class="container" style="margin-top: 5vh;">
+          <div class="row justify-content-md-center">
+
+              <div class="col md-4 text-center">
+
+                  <img src="img/Logo.png" id="imagen" style="width:25vh">
+
+              </div>
+              
+          </div>
+          </div>
         
           
         <div style="margin-top: 6vh; width: 40vh; margin: 0 auto;" >
@@ -631,45 +441,23 @@ font-size: 1.8vh;
                     <label for="" class="form__label">Celular (contacto)</label>
                 </div>
 
-              <!-- 
-                <label style="font-size: 2vh; margin-bottom:3vh;">Metodo de pago</label>
-                <select id="e3" style="width:70%; height:5vh; background:#052f6e; color:white; font-size:2vh; margin-bottom: 1vh;" class="form-select" aria-label="Default select example">
-                <option value="Efectivo" style="font-size:1.3vw;">Efectivo</option>
-                <option value="Transferencia bancaria" style="font-size:1.3vw;">Transferencia Bancaria</option>
-                <option value="Mercado pago" style="font-size:1.3vw;">Mercado Pago</option>
-                </select>
-                <p style="font-size: 1.5vh; margin-bottom:5vh; margin-left: 0vh; padding-right: 4vh;">
-                Una vez seleccionado el metodo de pago nos pondremos en contacto con usted para realizar la transaccion del mismo, efectivo se abona el dia del torneo
-                </p>
-              -->
-
-
                 <label style="font-size: 2.5vh; margin-bottom:3.5vh;">Categorias a participar:</label>
 
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="checks[]" value="4ta" id="defaultCheck4" style="width:3vh; height: 3vh; margin-bottom: 1vh;">
-                <p style="font-size:2.5vh;">4ta Categoría - 10:00 hs</p>
+                <input class="form-check-input" type="checkbox" name="checks[]" value="7ma" id="defaultCheck3" style="width:3vh; height: 3vh; margin-bottom: 1vh;">
+                <p style="font-size:2.5vh;">7ma Categoría</p>
                 </div>
 
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="checks[]" value="3ra" id="defaultCheck3" style="width:3vh; height: 3vh; margin-bottom: 1vh;" >
-                <p style="font-size:2.5vh;">3ra Categoría - 13:00 hs</p>
+                <input class="form-check-input" type="checkbox" name="checks[]" value="2da" id="defaultCheck2" style="width:3vh; height: 3vh; margin-bottom: 1vh;" >
+                <p style="font-size:2.5vh;">2da Categoría</p>
                 </div>
 
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="checks[]" value="2da" id="defaultCheck2" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
-                <p style="font-size:2.5vh;"> 2da Categoría - 16:00 hs</p>
+                <input class="form-check-input" type="checkbox" name="checks[]" value="1ra" id="defaultCheck1" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
+                <p style="font-size:2.5vh;">1ra Categoría</p>
                 </div>
 
-                <div class="form-check" style="margin-bottom: 4vh;">
-                  <input class="form-check-input" type="checkbox" name="checks[]" value="1ra" id="defaultCheck1" style="width:3vh; height: 3vh;margin-bottom: 1vh; " >
-                  <p style="font-size:2.5vh;"> 1ra Categoría - 19:00 hs</p>
-                </div>
-
-
-                <small>
-                  El pago de la inscripción se realiza el mismo dia del torneo y en efectivo.
-                </small>
                 <div id="loader" style="display:none;"></div>
                 <button type="submit" class="btn" id = "b1" onClick="insert_value()" value = "Insert" style="height: 8vh; width: 100%; font-size: 3vh;margin-top:2.5vh; border:1px solid white; color:white;">Inscribirme</button>
                 <div id="showData">
